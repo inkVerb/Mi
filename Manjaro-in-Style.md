@@ -2,7 +2,7 @@
 
 Copy and paste these commands to set Manjaro the way it aughtta be!
 
-```console
+```
 # Update & upgrade
 sudo pacman -Syyu --noconfirm
 
@@ -240,7 +240,10 @@ DropdownPositionVertical=4
 " > ~/.config/xfce4/terminal/terminalrc
 
 # Nice tools
-sudo pacman -S gimp inkscape discord kid3 audacity gnome-music ffmpeg libreoffice nano vlc shotcut vivaldi vivaldi-ffmpeg-codecs obs-studio  --noconfirm
+sudo pacman -S gimp inkscape discord kid3 audacity gnome-music ffmpeg nano vlc shotcut vivaldi vivaldi-ffmpeg-codecs obs-studio --noconfirm
+
+# LibreOffice (if OnlyOffice isn't good enough)
+#sudo pacman -S libreoffice --noconfirm
 
 # Fonts
 sudo pacman -S tex-gyre-fonts ttf-ubuntu-font-family font-bh-ttf noto-fonts ttf-ibm-plex ttf-liberation ttf-dejavu ttf-junicode gnu-free-fonts ttf-droid ttf-linux-libertine font-bh-ttf gentium-plus-font ttf-cascadia-code ttf-anonymous-pro ttf-jetbrains-mono adobe-source-sans-pro-fonts --noconfirm
@@ -257,4 +260,3 @@ sed -i "s:\\\W:\\\[\\\033[01;34m\\\]\\\w:g" ~/.bashrc
 sudo sed -i "s:\\\W:\\\[\\\033[01;34m\\\]\\\w:g" /etc/skel/.bashrc
 sudo sed -i "s:\\\W:\\\[\\\033[01;34m\\\]\\\w:g" /root/.bashrc
 ```
-ompose

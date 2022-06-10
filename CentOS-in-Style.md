@@ -1,5 +1,5 @@
 
-```console
+```
 # Lists (FYI)
 sudo dnf repolist
 sudo dnf list available
