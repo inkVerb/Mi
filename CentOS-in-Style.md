@@ -30,6 +30,16 @@ sudo dnf config-manager --add-repo https://repo.skype.com/rpm/stable/skype-stabl
 # Basics for desktop
 sudo dnf install -y chromium htop gnome-tweaks filezilla gimp inkscape skypeforlinux xfce4-terminal
 
+# Test these
+sudo dnf install -y git
+
+# Atom Material Themes
+mkdir -p ~/.atom/packages/
+cd ~/.atom/packages/
+git clone https://github.com/atom-material/atom-material-syntax.git
+git clone https://github.com/atom-material/atom-material-ui.git
+
+
 # Setup Vim for copy to clipboard
 echo 'nnoremap <C-c> "+y
 vnoremap <C-c> "+y

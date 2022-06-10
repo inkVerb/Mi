@@ -26,6 +26,12 @@ makepkg -si --noconfirm
 cd ..
 rm -rf yay
 
+# Atom Material Themes
+mkdir -p ~/.atom/packages/
+cd ~/.atom/packages/
+git clone https://github.com/inkVerb/ink-one-dark-syntax.git
+git clone https://github.com/inkVerb/city-lights-syntax.git
+
 # AUR basics for desktop
 yay -S google-chrome xfce4-terminal adduser gnome-shell-extension-installer --noconfirm
 
