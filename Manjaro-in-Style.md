@@ -11,7 +11,7 @@ chsh -s /bin/bash # Now you must re-login
 #chsh -s /bin/zsh # Changes back to native Manjaro shell
 
 # Basics for desktop
-sudo pacman -S chromium pepper-flash atom apm vim htop --noconfirm
+sudo pacman -S chromium pepper-flash atom apm vim gnome-text-editor htop --noconfirm
 
 ## Atom packages
 #currently broken wtih a "no electron" error
@@ -138,26 +138,60 @@ gsettings set org.gnome.desktop.session idle-delay "uint32 0"
 #redundant, already set to what it something good, go GNOME!
 #gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-maia-dark"
 
-# Prepare 6 custom shortcuts
-gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/']"
+# OnlyOffice to Dark theme
+sed -i "s/UITheme=theme-.*/UITheme=theme-dark/" ~/.config/onlyoffice/DesktopEditors.conf
 
-# Gedit
+# Gedit settings
 gsettings set org.gnome.gedit.preferences.editor wrap-mode none
 gsettings set org.gnome.gedit.preferences.editor display-line-numbers true
 gsettings set org.gnome.gedit.preferences.editor scheme 'solarized-dark'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/ name "'Gedit Text Editor'"
+
+# GNOME Text Editor
+su
+# Enter your password
+cat <<EOF > /usr/bin/xedit
+#!/bin/bash
+$(which gnome-text-editor) \$@
+EOF
+chmod 755 /usr/bin/xedit
+exit
+
+# GNOME Text Editor preferences
+gsettings set org.gnome.TextEditor style-variant 'dark'
+gsettings set org.gnome.TextEditor style-scheme 'builder-dark'
+#gsettings set org.gnome.TextEditor style-scheme 'Adwaita-dark' # Default
+gsettings set org.gnome.TextEditor highlight-current-line true
+gsettings set org.gnome.TextEditor show-map true
+gsettings set org.gnome.TextEditor show-line-numbers true
+gsettings set org.gnome.TextEditor wrap-text false
+gsettings set org.gnome.TextEditor restore-session false
+
+# Default text editors
+cat <<EOF >> ~/.bashrc
+export EDITOR='vim'
+export VISUAL='gnome-text-editor'
+EOF
+
+# Prepare 6 custom shortcuts
+gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/']"
+
+# GNOME Text Editor
+gsettings set org.gnome.gedit.preferences.editor wrap-mode none
+gsettings set org.gnome.gedit.preferences.editor display-line-numbers true
+gsettings set org.gnome.gedit.preferences.editor scheme 'solarized-dark'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/ name "'GNOME Text Editor'"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/ binding "'<Ctrl><Alt>x'"
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/ command "'gedit'"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/ command "'gnome-text-editor'"
 
 # Calculator
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/ name "'Calculator'"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/ binding "'<Ctrl><Alt>q'"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/ command "'gnome-calculator'"
 
-# Screenshot: Select area (May already be default)
-#gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/ name "'Screenshot Selection'"
-#gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/ binding "'<Alt>Print_Screen'"
-#gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/ command "'gnome-screenshot -ac'"
+# Screenshot: Select area
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/ name "'Screenshot Selection'"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/ binding "'<Ctrl><Shift>Print_Screen'"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/ command "'gnome-screenshot -ac'"
 
 # Volume keys (Ctrl + Page Up/Down, Break)
 gsettings set org.gnome.settings-daemon.plugins.media-keys volume-up "['<Shift>Page_Up']"
