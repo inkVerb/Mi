@@ -147,16 +147,7 @@ gsettings set org.gnome.gedit.preferences.editor display-line-numbers true
 gsettings set org.gnome.gedit.preferences.editor scheme 'solarized-dark'
 
 # GNOME Text Editor
-su
-# Enter your password
-cat <<EOF > /usr/bin/xedit
-#!/bin/bash
-$(which gnome-text-editor) \$@
-EOF
-chmod 755 /usr/bin/xedit
-exit
-
-# GNOME Text Editor preferences
+echo 'alias vedit=gnome-text-editor' >> ~/.bashrc
 gsettings set org.gnome.TextEditor style-variant 'dark'
 gsettings set org.gnome.TextEditor style-scheme 'builder-dark'
 #gsettings set org.gnome.TextEditor style-scheme 'Adwaita-dark' # Default
@@ -165,6 +156,7 @@ gsettings set org.gnome.TextEditor show-map true
 gsettings set org.gnome.TextEditor show-line-numbers true
 gsettings set org.gnome.TextEditor wrap-text false
 gsettings set org.gnome.TextEditor restore-session false
+gsettings set org.gnome.TextEditor spellcheck false
 
 # Default text editors
 cat <<EOF >> ~/.bashrc
