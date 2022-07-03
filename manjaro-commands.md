@@ -4,7 +4,8 @@ chsh -s /bin/bash # Now you must re-login
 
 sudo pacman -Syyu --noconfirm
 sudo pacman -Scc # Clean cache
-sudo yay -Syyu --noconfirm # Update UAR packageshttps://open.spotify.com/track/76zDfyiV5XwzjItm9vulRO
+yay -Syyu --noconfirm # Update UAR packageshttps://open.spotify.com/track/76zDfyiV5XwzjItm9vulRO
+yay -Scc --noconfirm # Clean cache
 
 sudo pacman -S chromium pepper-flash --noconfirm
 sudo pacman -S vivaldi vivaldi-ffmpeg-codecs --noconfirm
@@ -58,6 +59,8 @@ yay -S ttf-ms-fonts ttf-vista-fonts --noconfirm
 yay -S ebgaramond-otf otf-bodoni ttf-courier-prime ttf-google-fonts-git otf-jost ttf-tahoma --noconfirm
 yay -S otf-gfs ttf-mgopen opensiddur-hebrew-fonts culmus --noconfirm # Hebrew & Greek
 yay -S rss-glx --noconfirm
+yay -S key-mon --noconfirm
+yay -S slack-desktop --noconfirm
 
 # RSS Screensavers
 ## GUI settings

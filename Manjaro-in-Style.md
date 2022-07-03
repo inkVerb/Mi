@@ -15,8 +15,8 @@ sudo pacman -S chromium pepper-flash atom apm vim gnome-text-editor htop --nocon
 
 ## Atom packages
 #currently broken wtih a "no electron" error
-#apm install highlight-selected minimap minimap-highlight-selected notifications-plus
-#apm install linter linter-php linter-jshint linter-python linter-ui-default intentions busy-signal # syntax correction
+#apm install highlight-selected minimap minimap-highlight-selected
+#apm install linter linter-php linter-jshint linter-python linter-shellcheck linter-ui-default intentions busy-signal notifications-plus # syntax correction
 
 # AUR package handler
 sudo pacman -S base-devel git --noconfirm
@@ -25,6 +25,11 @@ cd yay
 makepkg -si --noconfirm
 cd ..
 rm -rf yay
+
+# Developer tools
+sudo pacman -S --noconfirm filezilla gitlab
+yay -S --noconfirm slack-desktop gitter-bin vscodium-bin
+## May want to add these to your "exclude" settings for shell check: "SC2076,SC2016,SC1090,SC2034,SC2154,SC1091,SC2206,SC2086,SC2153,SC2231"
 
 # Atom Material Themes
 mkdir -p ~/.atom/packages/
@@ -149,7 +154,7 @@ gsettings set org.gnome.gedit.preferences.editor scheme 'solarized-dark'
 # GNOME Text Editor
 echo 'alias vedit=gnome-text-editor' >> ~/.bashrc
 gsettings set org.gnome.TextEditor style-variant 'dark'
-gsettings set org.gnome.TextEditor style-scheme 'builder-dark'
+gsettings set org.gnome.TextEditor style-scheme 'kate-dark'
 #gsettings set org.gnome.TextEditor style-scheme 'Adwaita-dark' # Default
 gsettings set org.gnome.TextEditor highlight-current-line true
 gsettings set org.gnome.TextEditor show-map true
