@@ -1,7 +1,9 @@
+```
 # Get the proper shell
 chsh -s /bin/bash # Now you must re-login
 #chsh -s /bin/zsh # Changes back to native Manjaro shell
 
+sudo pacman -Sy archlinux-keyring --noconfirm
 sudo pacman -Syyu --noconfirm
 sudo pacman -Scc # Clean cache
 yay -Syyu --noconfirm # Update UAR packageshttps://open.spotify.com/track/76zDfyiV5XwzjItm9vulRO
@@ -194,7 +196,6 @@ sed -i "s:\\\W:\\\[\\\033[01;34m\\\]\\\w:g" /root/.bashrc
 4. sudo mount -a # reload
 
 # to find the available settings in gsettings, for instance: `dash-to-dock`
-```
 gsettings list-schemas
 gsettings list-keys org.gnome.shell.extensions.dash-to-dock
 gsettings range org.gnome.shell.extensions.dash-to-dock dock-position
@@ -202,27 +203,19 @@ gsettings range org.gnome.shell.extensions.dash-to-panel multi-monitors
 gnome-extensions list
 gnome-extensions disable dash-to-dock@micxgx.gmail.com
 gnome-extensions enable dash-to-dock@micxgx.gmail.com
-```
 
 # GNOME Shell prefs GUI
-
-```
 gnome-shell-extension-prefs
-```
 
 # See how settings happen
-```
 dconf watch /
-```
 
 # gsettings vs dconf
-```
 dconf write /org/gnome/desktop/input-sources/xkb-options "['compose:caps']"
 gsettings set org.gnome.desktop.input-sources xkb-options "['compose:caps']"
 dconf write /org/gnome/desktop/wm/keybindings/close "['<Alt>F4']"
 gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>F4']"
 ```
-
 
 | **gsettings-iterate-all** :
 

@@ -77,7 +77,8 @@ gsettings set org.gnome.desktop.session idle-delay 0 # off
 gnome-shell-extension-installer 242
 
 # GPaste clipboard history (Ctrl + Alt + G)
-gnome-extensions enable GPaste@gnome-shell-extensions.gnome.org
+# No longer maintained
+#gnome-extensions enable GPaste@gnome-shell-extensions.gnome.org
 
 # Arch pachage update tray icon
 gnome-extensions enable pamac-updates@manjaro.org
@@ -91,7 +92,6 @@ gsettings set org.gnome.shell.extensions.arcmenu menu-hotkey 'Undefined'
 gsettings set org.gnome.shell.extensions.arcmenu
 gsettings set org.gnome.shell.extensions.arcmenu
 gsettings set org.gnome.shell.extensions.arcmenu
-gnome-extensions enable gsettings set org.gnome.shell.extensions.arcmenu
 
 # Dash to Dock
 gnome-extensions enable dash-to-dock@micxgx.gmail.com
