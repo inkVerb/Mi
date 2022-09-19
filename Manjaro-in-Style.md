@@ -11,7 +11,7 @@ chsh -s /bin/bash # Now you must re-login
 #chsh -s /bin/zsh # Changes back to native Manjaro shell
 
 # Basics for desktop
-sudo pacman -S chromium pepper-flash atom apm vim gnome-text-editor htop --noconfirm
+sudo pacman -S chromium vim gnome-text-editor htop --noconfirm
 
 ## Atom packages
 #currently broken wtih a "no electron" error
@@ -27,9 +27,14 @@ cd ..
 rm -rf yay
 
 # Developer tools
-sudo pacman -S --noconfirm filezilla gitlab
+sudo pacman -S --noconfirm filezilla gitlab obsidian
 yay -S --noconfirm slack-desktop gitter-bin vscodium-bin
-## May want to add these to your "exclude" settings for shell check: "SC2076,SC2016,SC1090,SC2034,SC2154,SC1091,SC2206,SC2086,SC2153,SC2231"
+## Themes & extensions
+codium --install-extension emroussel.atomize-atom-one-dark-theme
+codium --install-extension opensumi.opensumi-default-themes
+codium --install-extension PenumbraTheme.penumbra
+codium --install-extension timonwong.shellcheck
+## May want to add these to File > Preferences > Settings > Extensions > ShellCheck > Exclude: "SC2076,SC2016,SC1090,SC2034,SC2154,SC1091,SC2206,SC2086,SC2153,SC2231"
 
 # Atom Material Themes
 mkdir -p ~/.atom/packages/
