@@ -30,7 +30,6 @@ sudo pacman -S inkscape --noconfirm
 sudo pacman -S blender --noconfirm
 sudo pacman -S synfigstudio --noconfirm
 sudo pacman -S libreoffice --noconfirm
-sudo pacman -S atom --noconfirm
 sudo pacman -S git --noconfirm
 sudo pacman -S htop --noconfirm
 sudo pacman -S gpaste --noconfirm
@@ -58,6 +57,7 @@ yay -S dropbox --noconfirm
 yay -S subtitlecomposer --noconfirm
 yay -S adduser --noconfirm
 yay -S twinkle --noconfirm
+yay -S atom --noconfirm
 yay -S ttf-ms-fonts ttf-vista-fonts --noconfirm
 yay -S ebgaramond-otf otf-bodoni ttf-courier-prime ttf-google-fonts-git otf-jost ttf-tahoma --noconfirm
 yay -S otf-gfs ttf-mgopen opensiddur-hebrew-fonts culmus --noconfirm # Hebrew & Greek

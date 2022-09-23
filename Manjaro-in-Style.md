@@ -13,11 +13,6 @@ chsh -s /bin/bash # Now you must re-login
 # Basics for desktop
 sudo pacman -S chromium vim gnome-text-editor htop --noconfirm
 
-## Atom packages
-#currently broken wtih a "no electron" error
-#apm install highlight-selected minimap minimap-highlight-selected
-#apm install linter linter-php linter-jshint linter-python linter-shellcheck linter-ui-default intentions busy-signal notifications-plus # syntax correction
-
 # AUR package handler
 sudo pacman -S base-devel git --noconfirm
 git clone https://aur.archlinux.org/yay.git
@@ -27,7 +22,7 @@ cd ..
 rm -rf yay
 
 # Developer tools
-sudo pacman -S --noconfirm filezilla gitlab obsidian
+sudo pacman -S --noconfirm filezilla gitlab obsidian nextcloud-client
 yay -S --noconfirm slack-desktop gitter-bin vscodium-bin
 ## Themes & extensions
 codium --install-extension emroussel.atomize-atom-one-dark-theme
@@ -36,14 +31,8 @@ codium --install-extension PenumbraTheme.penumbra
 codium --install-extension timonwong.shellcheck
 ## May want to add these to File > Preferences > Settings > Extensions > ShellCheck > Exclude: "SC2076,SC2016,SC1090,SC2034,SC2154,SC1091,SC2206,SC2086,SC2153,SC2231"
 
-# Atom Material Themes
-mkdir -p ~/.atom/packages/
-cd ~/.atom/packages/
-git clone https://github.com/inkVerb/ink-one-dark-syntax.git
-git clone https://github.com/inkVerb/city-lights-syntax.git
-
 # AUR basics for desktop
-yay -S google-chrome xfce4-terminal adduser gnome-shell-extension-installer --noconfirm
+yay -S google-chrome xfce4-terminal adduser gnome-shell-extension-installer discord dropbox --noconfirm
 
 # Plz disable Wayland
 sudo sed -i "s/#WaylandEnable=false/WaylandEnable=false/" /etc/gdm/custom.conf
@@ -78,25 +67,12 @@ gsettings set org.gnome.settings-daemon.plugins.power power-button-action 'inter
 #gsettings set org.gnome.desktop.session idle-delay 900 # blank screen after 15 min
 gsettings set org.gnome.desktop.session idle-delay 0 # off
 
-# Blank screen option in menu
-gnome-shell-extension-installer 242
-
-# GPaste clipboard history (Ctrl + Alt + G)
-# No longer maintained
-#gnome-extensions enable GPaste@gnome-shell-extensions.gnome.org
-
-# Arch pachage update tray icon
-gnome-extensions enable pamac-updates@manjaro.org
-
 # ArcMenu
 gnome-extensions enable arcmenu@arcmenu.com
 gsettings set org.gnome.shell.extensions.arcmenu menu-button-icon 'Distro_Icon'
 #gsettings set org.gnome.shell.extensions.arcmenu menu-button-icon 'Arc_Menu_Icon'
 gsettings set org.gnome.shell.extensions.arcmenu multi-monitor true
 gsettings set org.gnome.shell.extensions.arcmenu menu-hotkey 'Undefined'
-gsettings set org.gnome.shell.extensions.arcmenu
-gsettings set org.gnome.shell.extensions.arcmenu
-gsettings set org.gnome.shell.extensions.arcmenu
 
 # Dash to Dock
 gnome-extensions enable dash-to-dock@micxgx.gmail.com
@@ -123,10 +99,11 @@ gsettings set org.gnome.shell.extensions.dash-to-panel intellihide-use-pressure 
 gsettings set org.gnome.shell.extensions.dash-to-panel intellihide-show-in-fullscreen false
 gsettings set org.gnome.shell.extensions.dash-to-panel intellihide-only-secondary true
 gsettings set org.gnome.shell.extensions.dash-to-panel panel-size 32
-#gsettings set org.gnome.shell.extensions.dash-to-panel panel-sizes '{"0":28,"1":28,"2":28,"3":28}' # Too small, leaves space above Xterminal dropdown
-gsettings set org.gnome.shell.extensions.dash-to-panel panel-sizes '{"0":32,"1":32,"2":32,"3":32}'
+#gsettings set org.gnome.shell.extensions.dash-to-panel panel-sizes '{"0":32,"1":32,"2":32,"3":32}'
+#gsettings set org.gnome.shell.extensions.dash-to-panel panel-positions '{"0":"TOP","1":"TOP","2":"TOP","3":"TOP"}'
+gsettings set org.gnome.shell.extensions.dash-to-panel panel-sizes '{"0":32}'
+gsettings set org.gnome.shell.extensions.dash-to-panel panel-positions '{"0":"TOP"}'
 gsettings set org.gnome.shell.extensions.dash-to-panel panel-position 'TOP'
-gsettings set org.gnome.shell.extensions.dash-to-panel panel-positions '{"0":"TOP","1":"TOP","2":"TOP","3":"TOP"}'
 gsettings set org.gnome.shell.extensions.dash-to-panel show-appmenu false
 gsettings set org.gnome.shell.extensions.dash-to-panel show-activities-button false
 gsettings set org.gnome.shell.extensions.dash-to-panel show-favorites true
@@ -276,14 +253,16 @@ DropdownPositionVertical=4
 " > ~/.config/xfce4/terminal/terminalrc
 
 # Nice tools (We need LibreOffice; OnlyOffice doesn't have drag and drop support from files and desktop)
-sudo pacman -S gimp inkscape discord kid3 audacity gnome-music ffmpeg nano vlc shotcut vivaldi vivaldi-ffmpeg-codecs obs-studio libreoffice --noconfirm
+sudo pacman -S gimp inkscape kid3 audacity gnome-music ffmpeg nano vlc shotcut vivaldi vivaldi-ffmpeg-codecs obs-studio libreoffice --noconfirm
 
 # Fonts
 sudo pacman -S tex-gyre-fonts ttf-ubuntu-font-family font-bh-ttf noto-fonts ttf-ibm-plex ttf-liberation ttf-dejavu ttf-junicode gnu-free-fonts ttf-droid ttf-linux-libertine font-bh-ttf gentium-plus-font ttf-cascadia-code ttf-anonymous-pro ttf-jetbrains-mono adobe-source-sans-pro-fonts --noconfirm
-sudo pacman -S adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts --noconfirm # Chinese/Japanese/Korean
 yay -S ttf-ms-fonts ttf-vista-fonts --noconfirm
 yay -S ebgaramond-otf otf-bodoni ttf-courier-prime ttf-google-fonts-git otf-jost ttf-tahoma --noconfirm
-yay -S otf-gfs ttf-mgopen culmus --noconfirm # Hebrew & Greek
+# Chinese/Japanese/Korean
+sudo pacman -S adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts --noconfirm
+# Hebrew & Greek # broken package: otf-gfs
+yay -S ttf-mgopen culmus --noconfirm
 
 # BASH prompt colors
 chsh -s /bin/bash

@@ -39,6 +39,8 @@ cd ~/.atom/packages/
 git clone https://github.com/atom-material/atom-material-syntax.git
 git clone https://github.com/atom-material/atom-material-ui.git
 
+# Plz disable Wayland
+sudo sed -i "s/#WaylandEnable=false/WaylandEnable=false/" /etc/gdm/custom.conf
 
 # Setup Vim for copy to clipboard
 echo 'nnoremap <C-c> "+y
