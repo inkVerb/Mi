@@ -122,8 +122,8 @@ gsettings set org.gnome.desktop.session idle-delay "uint32 0"
 #gsettings set org.gnome.desktop.session idle-delay "uint32 600" # 5 minutes
 
 # Set theme & icons
-#redundant, already set to what it something good, go GNOME!
-#gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-maia-dark"
+# Desktop theme for legacy applications
+gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-maia-dark"
 
 # OnlyOffice to Dark theme
 sed -i "s/UITheme=theme-.*/UITheme=theme-dark/" ~/.config/onlyoffice/DesktopEditors.conf
