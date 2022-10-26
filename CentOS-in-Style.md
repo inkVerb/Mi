@@ -33,11 +33,17 @@ sudo dnf install -y chromium htop gnome-tweaks filezilla gimp inkscape skypeforl
 # Test these
 sudo dnf install -y git
 
-# Atom Material Themes
-mkdir -p ~/.atom/packages/
-cd ~/.atom/packages/
-git clone https://github.com/atom-material/atom-material-syntax.git
-git clone https://github.com/atom-material/atom-material-ui.git
+# VS Codium
+sudo dnf install epel-release
+sudo dnf install snapd --skip-broken
+sudo systemctl enable --now snapd.socket
+sudo ln -s /var/lib/snapd/snap /snap
+sudo snap install codium --classic
+codium --install-extension emroussel.atomize-atom-one-dark-theme
+codium --install-extension opensumi.opensumi-default-themes
+codium --install-extension PenumbraTheme.penumbra
+codium --install-extension timonwong.shellcheck
+## May want to add these to File > Preferences > Settings > Extensions > ShellCheck > Exclude: "SC2076,SC2016,SC1090,SC2034,SC2154,SC1091,SC2206,SC2086,SC2153,SC2231"
 
 # Plz disable Wayland
 sudo sed -i "s/#WaylandEnable=false/WaylandEnable=false/" /etc/gdm/custom.conf
