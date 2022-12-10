@@ -43,6 +43,7 @@ codium --install-extension emroussel.atomize-atom-one-dark-theme
 codium --install-extension opensumi.opensumi-default-themes
 codium --install-extension PenumbraTheme.penumbra
 codium --install-extension timonwong.shellcheck
+codium --install-extension ms-vscode.go
 ## May want to add these to File > Preferences > Settings > Extensions > ShellCheck > Exclude: "SC2076,SC2016,SC1090,SC2034,SC2154,SC1091,SC2206,SC2086,SC2153,SC2231"
 
 # Plz disable Wayland
