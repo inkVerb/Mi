@@ -57,6 +57,14 @@ vnoremap <C-p> "+p
 syntax on' > ~/.vimrc
 
 # Desktop settings # These can be seen in dconf-editor
+## Notes:
+# - Compose: CapsLock
+# - Activities: Top left corner mouse; Super
+# - Applications: Ctrl + Left Super
+# - New window: middle click on menu's app icon
+# - Minimize: middle click on title bar
+# - Move window: Alt + click anywhere
+# - Scale window: Alt + right click near edge or corner
 gsettings set org.gnome.desktop.input-sources xkb-options "['compose:caps']"
 gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>F4']"
 gsettings set org.gnome.desktop.wm.preferences resize-with-right-button true
@@ -70,6 +78,27 @@ gsettings set org.gnome.desktop.interface clock-show-date true
 gsettings set org.gnome.desktop.interface toolbar-detachable false
 gsettings set org.gnome.desktop.notifications show-banners false
 gsettings set org.gnome.desktop.notifications show-in-lock-screen false
+gsettings set org.gnome.mutter workspaces-only-on-primary 'false'
+gsettings set org.gnome.desktop.interface enable-hot-corners true
+gsettings set org.gnome.shell.app-switcher current-workspace-only true
+gsettings set org.gnome.settings-daemon.plugins.power power-button-action 'interactive'
+gsettings set org.gnome.shell.keybindings toggle-application-view "['<Ctrl>Super_L']"
+gsettings set org.gnome.shell.keybindings toggle-overview "['<Super>']"
+
+# Workspace switching (defaults)
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "['<Control><Alt>Left']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "['<Control><Alt>Right']"
+
+# Password anytime screen turns back on (from lock or suspend)
+gsettings set org.gnome.desktop.screensaver lock-enabled true
+
+# Set Lockscreen to "never" (uint32 0)
+gsettings set org.gnome.desktop.session idle-delay "uint32 0"
+#gsettings set org.gnome.desktop.session idle-delay "uint32 900" # 15 minutes
+#gsettings set org.gnome.desktop.session idle-delay "uint32 600" # 5 minutes
+
+# Dash to Dock
+gnome-extensions enable dash-to-dock@micxgx.gmail.com
 gsettings set org.gnome.shell.extensions.dash-to-dock autohide 'true'
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
 gsettings set org.gnome.shell.extensions.dash-to-dock icon-size-fixed 'false'
@@ -79,19 +108,6 @@ gsettings set org.gnome.shell.extensions.dash-to-dock preferred-monitor 0
 gsettings set org.gnome.shell.extensions.dash-to-dock show-trash 'false'
 gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 32
 gsettings set org.gnome.shell.extensions.dash-to-dock require-pressure-to-show false
-gsettings set org.gnome.mutter workspaces-only-on-primary 'false'
-gsettings set org.gnome.desktop.interface enable-hot-corners true
-gsettings set org.gnome.shell.app-switcher current-workspace-only true
-gsettings set org.gnome.settings-daemon.plugins.power power-button-action 'interactive'
-
-# Blank screen
-#gsettings set org.gnome.desktop.session idle-delay 900 # blank screen after 15 min
-gsettings set org.gnome.desktop.session idle-delay 0
-
-# Set Lockscreen to "never" (uint32 0)
-gsettings set org.gnome.desktop.session idle-delay "uint32 0"
-#gsettings set org.gnome.desktop.session idle-delay "uint32 900" # 15 minutes
-#gsettings set org.gnome.desktop.session idle-delay "uint32 600" # 5 minutes
 
 # Set theme & icons
 gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"

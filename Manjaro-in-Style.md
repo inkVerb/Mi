@@ -46,6 +46,14 @@ vnoremap <C-p> "+p
 syntax on' > ~/.vimrc
 
 # Desktop settings # These can be seen in dconf-editor
+## Notes:
+# - Compose: CapsLock
+# - Activities: Top left corner mouse; Super
+# - Applications: Ctrl + Left Super
+# - New window: middle click on menu's app icon
+# - Minimize: middle click on title bar
+# - Move window: Alt + click anywhere
+# - Scale window: Alt + right click near edge or corner
 gsettings set org.gnome.desktop.input-sources xkb-options "['compose:caps']"
 gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>F4']"
 gsettings set org.gnome.desktop.wm.preferences resize-with-right-button true
@@ -63,17 +71,27 @@ gsettings set org.gnome.mutter workspaces-only-on-primary false
 gsettings set org.gnome.desktop.interface enable-hot-corners true
 gsettings set org.gnome.shell.app-switcher current-workspace-only true
 gsettings set org.gnome.settings-daemon.plugins.power power-button-action 'interactive'
+gsettings set org.gnome.shell.keybindings toggle-application-view "['<Ctrl>Super_L']"
+gsettings set org.gnome.shell.keybindings toggle-overview "['<Super>']"
 
-# Blank screen
-#gsettings set org.gnome.desktop.session idle-delay 900 # blank screen after 15 min
-gsettings set org.gnome.desktop.session idle-delay 0 # off
+# Workspace switching (defaults)
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "['<Control><Alt>Left']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "['<Control><Alt>Right']"
+
+# Password anytime screen turns back on (from lock or suspend)
+gsettings set org.gnome.desktop.screensaver lock-enabled true
+
+# Set Lockscreen to "never" (uint32 0)
+gsettings set org.gnome.desktop.session idle-delay "uint32 0"
+#gsettings set org.gnome.desktop.session idle-delay "uint32 900" # 15 minutes
+#gsettings set org.gnome.desktop.session idle-delay "uint32 600" # 5 minutes
 
 # ArcMenu
 gnome-extensions enable arcmenu@arcmenu.com
 gsettings set org.gnome.shell.extensions.arcmenu menu-button-icon 'Distro_Icon'
 #gsettings set org.gnome.shell.extensions.arcmenu menu-button-icon 'Arc_Menu_Icon'
 gsettings set org.gnome.shell.extensions.arcmenu multi-monitor true
-gsettings set org.gnome.shell.extensions.arcmenu menu-hotkey 'Undefined'
+gsettings set org.gnome.shell.extensions.arcmenu enable-menu-hotkey false
 
 # Dash to Dock
 gnome-extensions enable dash-to-dock@micxgx.gmail.com
@@ -102,9 +120,13 @@ gsettings set org.gnome.shell.extensions.dash-to-panel intellihide-only-secondar
 gsettings set org.gnome.shell.extensions.dash-to-panel panel-size 32
 #gsettings set org.gnome.shell.extensions.dash-to-panel panel-sizes '{"0":32,"1":32,"2":32,"3":32}'
 #gsettings set org.gnome.shell.extensions.dash-to-panel panel-positions '{"0":"TOP","1":"TOP","2":"TOP","3":"TOP"}'
+#gsettings set org.gnome.shell.extensions.dash-to-panel panel-lengths '{"0":100,"1":100,"2":100}'
+#gsettings set org.gnome.shell.extensions.dash-to-panel panel-element-positions '{"0":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}],"1":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}],"2":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}'
 gsettings set org.gnome.shell.extensions.dash-to-panel panel-sizes '{"0":32}'
 gsettings set org.gnome.shell.extensions.dash-to-panel panel-positions '{"0":"TOP"}'
 gsettings set org.gnome.shell.extensions.dash-to-panel panel-position 'TOP'
+gsettings set org.gnome.shell.extensions.dash-to-panel panel-lengths '{"0":100}'
+gsettings set org.gnome.shell.extensions.dash-to-panel panel-element-positions '{"0":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}'
 gsettings set org.gnome.shell.extensions.dash-to-panel show-appmenu false
 gsettings set org.gnome.shell.extensions.dash-to-panel show-activities-button false
 gsettings set org.gnome.shell.extensions.dash-to-panel show-favorites true
@@ -116,11 +138,7 @@ gsettings set org.gnome.shell.extensions.dash-to-panel show-favorites true
 gsettings set org.gnome.shell.extensions.dash-to-panel show-favorites-all-monitors true
 gsettings set org.gnome.shell.extensions.dash-to-panel dot-style-focused 'CILIORA'
 gsettings set org.gnome.shell.extensions.dash-to-panel dot-style-unfocused 'CILIORA'
-
-# Set Lockscreen to "never" (uint32 0)
-gsettings set org.gnome.desktop.session idle-delay "uint32 0"
-#gsettings set org.gnome.desktop.session idle-delay "uint32 900" # 15 minutes
-#gsettings set org.gnome.desktop.session idle-delay "uint32 600" # 5 minutes
+gsettings set org.gnome.shell.extensions.arcmenu gnome-dash-show-applications false
 
 # Set theme & icons
 # Desktop theme for legacy applications
@@ -186,10 +204,6 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys volume-step 3
 #gsettings get org.gnome.settings-daemon.plugins.media-keys volume-down
 #gsettings get org.gnome.settings-daemon.plugins.media-keys volume-mute
 #gsettings get org.gnome.settings-daemon.plugins.media-keys volume-step
-
-# Workspace switching (defaults)
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "['<Control><Alt>Left']"
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "['<Control><Alt>Right']"
 
 # Terminal keyboard shortcuts
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name "'Dropdown Terminal: ScrLk'"
