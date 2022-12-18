@@ -218,6 +218,11 @@ xfconf-query -c xfwm4 -p /general/scroll_workspaces -s true
 xfconf-query -c xfwm4 -p /general/mousewheel_rollup -s true
 xfconf-query -c xfwm4 -p /general/tile_on_move -s true
 
+# Gedit settings
+gsettings set org.gnome.gedit.preferences.editor wrap-mode none
+gsettings set org.gnome.gedit.preferences.editor display-line-numbers true
+gsettings set org.gnome.gedit.preferences.editor scheme 'solarized-dark'
+
 ## Hot keys
 ### F12 / Scroll Lock for Xterminal Drop-down
 xfconf-query -n -c xfce4-keyboard-shortcuts -p "/commands/custom/F12" -t string -s 'xfce4-terminal --drop-down'

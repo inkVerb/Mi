@@ -38,7 +38,7 @@ sudo pacman -S nano --noconfirm
 sudo pacman -S nextcloud-client --noconfirm
 sudo pacman -S gnome-tweak-tool --noconfirm
 sudo pacman -S discord --noconfirm
-sudo pacman -S obsidian --noconfir
+sudo pacman -S obsidian --noconfirm
 sudo pacman -S tex-gyre-fonts ttf-ubuntu-font-family font-bh-ttf noto-fonts ttf-ibm-plex ttf-liberation ttf-dejavu ttf-junicode gnu-free-fonts ttf-droid ttf-linux-libertine font-bh-ttf gentium-plus-font ttf-cascadia-code ttf-anonymous-pro ttf-jetbrains-mono adobe-source-sans-pro-fonts --noconfirm
 sudo pacman -S adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts --noconfirm # Chinese/Japanese/Korean
 
