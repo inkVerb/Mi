@@ -142,6 +142,7 @@ gsettings set org.gnome.shell.extensions.dash-to-dock preferred-monitor 0
 gsettings set org.gnome.shell.extensions.dash-to-dock show-trash 'false'
 gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 32
 gsettings set org.gnome.mutter workspaces-only-on-primary 'false'
+gsettings set org.gnome.desktop.background show-desktop-icons true
 
 #gsettings set org.gnome.desktop.background show-desktop-icons true
 

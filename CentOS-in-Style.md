@@ -84,6 +84,7 @@ gsettings set org.gnome.shell.app-switcher current-workspace-only true
 gsettings set org.gnome.settings-daemon.plugins.power power-button-action 'interactive'
 gsettings set org.gnome.shell.keybindings toggle-application-view "['<Ctrl>Super_L']"
 gsettings set org.gnome.shell.keybindings toggle-overview "['<Super>']"
+gsettings set org.gnome.desktop.background show-desktop-icons true
 
 # Workspace switching (defaults)
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "['<Control><Alt>Left']"
