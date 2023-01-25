@@ -210,6 +210,7 @@ ShortcutsNoHelpkey=TRUE
 DropdownKeepOpenDefault=TRUE
 DropdownToggleFocus=TRUE
 DropdownPositionVertical=4
+DropdownMoveToActive=FALSE
 " > ~/.config/xfce4/terminal/terminalrc
 
 # Xfce-specific (not GNOME)

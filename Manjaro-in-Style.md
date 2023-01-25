@@ -265,6 +265,7 @@ ShortcutsNoHelpkey=TRUE
 DropdownKeepOpenDefault=TRUE
 DropdownToggleFocus=TRUE
 DropdownPositionVertical=4
+DropdownMoveToActive=FALSE
 " > ~/.config/xfce4/terminal/terminalrc
 
 # Nice tools (We need LibreOffice; OnlyOffice doesn't have drag and drop support from files and desktop)
