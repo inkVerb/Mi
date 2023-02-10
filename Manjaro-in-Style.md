@@ -43,7 +43,8 @@ echo 'nnoremap <C-c> "+y
 vnoremap <C-c> "+y
 nnoremap <C-p> "+p
 vnoremap <C-p> "+p
-syntax on' > ~/.vimrc
+syntax on
+set number' > ~/.vimrc
 
 # Desktop settings # These can be seen in dconf-editor
 ## Notes:
@@ -119,6 +120,7 @@ gsettings set org.gnome.shell.extensions.dash-to-panel intellihide-use-pressure 
 gsettings set org.gnome.shell.extensions.dash-to-panel intellihide-show-in-fullscreen false
 gsettings set org.gnome.shell.extensions.dash-to-panel intellihide-only-secondary true
 gsettings set org.gnome.shell.extensions.dash-to-panel panel-size 32
+#gsettings set org.gnome.shell.extensions.dash-to-panel primary-monitor 1
 #gsettings set org.gnome.shell.extensions.dash-to-panel panel-sizes '{"0":32,"1":32,"2":32,"3":32}'
 #gsettings set org.gnome.shell.extensions.dash-to-panel panel-positions '{"0":"TOP","1":"TOP","2":"TOP","3":"TOP"}'
 #gsettings set org.gnome.shell.extensions.dash-to-panel panel-lengths '{"0":100,"1":100,"2":100}'
@@ -272,7 +274,7 @@ DropdownMoveToActive=FALSE
 sudo pacman -S gimp inkscape kid3 audacity gnome-music ffmpeg nano vlc shotcut vivaldi vivaldi-ffmpeg-codecs obs-studio libreoffice --noconfirm
 
 # Fonts
-sudo pacman -S tex-gyre-fonts ttf-ubuntu-font-family font-bh-ttf noto-fonts ttf-ibm-plex ttf-liberation ttf-dejavu ttf-junicode gnu-free-fonts ttf-droid ttf-linux-libertine font-bh-ttf gentium-plus-font ttf-cascadia-code ttf-anonymous-pro ttf-jetbrains-mono adobe-source-sans-pro-fonts --noconfirm
+sudo pacman -S tex-gyre-fonts ttf-ubuntu-font-family noto-fonts ttf-ibm-plex ttf-liberation ttf-dejavu ttf-junicode gnu-free-fonts ttf-droid ttf-linux-libertine gentium-plus-font ttf-cascadia-code ttf-anonymous-pro ttf-jetbrains-mono adobe-source-sans-pro-fonts --noconfirm
 yay -S ttf-ms-fonts ttf-vista-fonts --noconfirm
 yay -S ebgaramond-otf otf-bodoni ttf-courier-prime ttf-google-fonts-git otf-jost ttf-tahoma --noconfirm
 # Chinese/Japanese/Korean

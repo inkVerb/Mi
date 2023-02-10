@@ -6,10 +6,10 @@ chsh -s /bin/bash # Now you must re-login
 sudo pacman -Sy archlinux-keyring --noconfirm
 sudo pacman -Syyu --noconfirm
 sudo pacman -Scc # Clean cache
-yay -Syyu --noconfirm # Update UAR packageshttps://open.spotify.com/track/76zDfyiV5XwzjItm9vulRO
+yay -Syyu --noconfirm # Update UAR packages https://open.spotify.com/track/76zDfyiV5XwzjItm9vulRO
 yay -Scc --noconfirm # Clean cache
 
-sudo pacman -S chromium pepper-flash --noconfirm
+sudo pacman -S chromium --noconfirm
 sudo pacman -S vivaldi vivaldi-ffmpeg-codecs --noconfirm
 sudo pacman -S thunderbird --noconfirm
 sudo pacman -S filezilla --noconfirm

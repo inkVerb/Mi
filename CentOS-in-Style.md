@@ -54,7 +54,8 @@ echo 'nnoremap <C-c> "+y
 vnoremap <C-c> "+y
 nnoremap <C-p> "+p
 vnoremap <C-p> "+p
-syntax on' > ~/.vimrc
+syntax on
+set number' > ~/.vimrc
 
 # Desktop settings # These can be seen in dconf-editor
 ## Notes:
