@@ -11,10 +11,9 @@ ___
 - **[StylishThemes/StackOverflow-Dark](https://github.com/StylishThemes/StackOverflow-Dark/)**
 
 ___
-## [Manjaro/Arch Instructions](https://github.com/inkVerb/Vubuntu/blob/master/Arch.md)
+## [Manjaro/Arch Install Instructions](https://github.com/inkVerb/Mi/blob/master/Arch.md)
 ___
 ## [Manjaro in Style](https://github.com/inkVerb/Mi/blob/master/Manjaro-in-Style.md)
-## [Manjaro/Arch Install Instructions](https://github.com/inkVerb/Mi/blob/master/Arch.md)
 ## [CentOS in Style](https://github.com/inkVerb/Mi/blob/main/CentOS-in-Style.md)
 ## [BIOS, EFI & Other Settings for Linux](https://github.com/inkVerb/Mi/blob/master/install-BIOS-UEFI.md)
 ## [IBUS for Taiwan and/or China Mandarin typing input](https://github.com/inkVerb/Mi/blob/master/ibus_zh_TW.md)
