@@ -33,10 +33,20 @@ codium --install-extension ms-vscode.go
 ## May want to add these to File > Preferences > Settings > Extensions > ShellCheck > Exclude: "SC2076,SC2016,SC1090,SC2034,SC2154,SC1091,SC2206,SC2086,SC2153,SC2231"
 
 # AUR basics for desktop
-yay -S google-chrome xfce4-terminal adduser gnome-shell-extension-installer discord dropbox --noconfirm
+yay -S google-chrome microsoft-edge-stable-bin xfce4-terminal adduser gnome-shell-extension-installer discord dropbox --noconfirm
 
 # Plz disable Wayland
 sudo sed -i "s/#WaylandEnable=false/WaylandEnable=false/" /etc/gdm/custom.conf
+
+# Fortnite (Will not work on Linux until Epic supports it, but this is how to install it; the game will crash just after you land on the ground.)
+## Method 1: Install Lutris
+sudo pacman -S lutris
+### > ... > Add games > Search Lutris website for "Epic Games Store" (Create what shortcuts you want)
+### > Login to Epic Games in Lutris
+## Method 2: Install the Heroic launcher
+yay -S heroic-games-launcher-bin # Also consider: heroic-games-launcher and heroic-games-launcher-git
+### Login using "Epic Alternative Login" (if reCaptcha challegne gives false fails, which it often does)
+
 
 # Setup Vim for copy to clipboard
 echo 'nnoremap <C-c> "+y
@@ -340,4 +350,12 @@ xfconf-query -n -c xfdashboard -p /enabled-plugins -a -t string -s hot-corner
 xfconf-query -n -t string -c xfdashboard -p /plugins/hot-corner/activation-corner -s XFDASHBOARD_HOT_CORNER_SETTINGS_ACTIVATION_CORNER_TOP_LEFT
 xfconf-query -n -t string -c xfdashboard -p /plugins/hot-corner/activation-duration -s 27
 xfconf-query -n -t string -c xfdashboard -p /plugins/hot-corner/activation-radius -s 1
+
+## AMD drivers
+### AMD DRI driver for 3D acceleration
+https://wiki.archlinux.org/title/AMDGPU
+sudp pacman -S mesa --noconfirm
+## AMD Pro Drivers
+https://aur.archlinux.org/pkgbase/amdgpu-pro-installer
+yay -S amdgpu-pro-installer # May be broken, read notes on AUR page
 ```
