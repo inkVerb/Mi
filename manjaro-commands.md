@@ -50,6 +50,10 @@ makepkg -si --noconfirm
 cd ..
 rm -rf yay
 
+# AMD drivers
+yay -Sy --noconfirm vulkan-amdgpu-pro
+#yay -Sy --noconfirm opencl-amdgpu-pro-pal # Or the OpenCL PAL
+
 # AUR Packages
 yay -S google-chrome --noconfirm
 yay -S skype --noconfirm
@@ -64,6 +68,11 @@ yay -S otf-gfs ttf-mgopen opensiddur-hebrew-fonts culmus --noconfirm # Hebrew & 
 yay -S rss-glx --noconfirm
 yay -S key-mon --noconfirm
 yay -S slack-desktop --noconfirm
+
+# OBS virtualcam
+#https://github.com/Fenrirthviti/obs-virtual-cam/releases
+# yay -S obs-virtual-cam-filter # broken?
+# https://forum.manjaro.org/t/howto-install-an-obs-studio-virtual-camera/67317
 
 # RSS Screensavers
 ## GUI settings
