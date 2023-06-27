@@ -51,8 +51,15 @@ cd ..
 rm -rf yay
 
 # AMD drivers
-yay -Sy --noconfirm vulkan-amdgpu-pro
+#yay -Sy --noconfirm vulkan-amdgpu-pro
 #yay -Sy --noconfirm opencl-amdgpu-pro-pal # Or the OpenCL PAL
+
+# AMD Radeon
+## From running around in https://wiki.archlinux.org/title/AMDGPU
+yay -S --noconfirm vulkan-amdgpu-pro
+###  vulkan-amdgpu-pro handles:
+#### yay -S amdgpu-pro-installer
+#### pacman -S --noconfirm mesa vulkan-radeon
 
 # AUR Packages
 yay -S google-chrome --noconfirm
