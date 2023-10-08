@@ -5,10 +5,24 @@
 ## Learn Linux: [verb.vip](https://github.com/inkVerb/VIP)
 
 ___
-### You'll need Stack Overflow, so you need the dark theme...
-#### 1. Install: Firefox [Stylus](https://addons.mozilla.org/en-US/firefox/addon/styl-us/) / [Stylish](https://addons.mozilla.org/en-US/firefox/addon/stylish/) | Chrome [Stylus](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne) / [Stylish](https://chrome.google.com/webstore/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe)
-#### 2. Themify: [Stack Overflow Dark](https://github.com/StylishThemes/StackOverflow-Dark/raw/master/stackoverflow-dark.user.css)
-- **[StylishThemes/StackOverflow-Dark](https://github.com/StylishThemes/StackOverflow-Dark/)**
+### Dark theming on Chromium browsers
+
+- Chrome
+- Chromium
+- Vivaldi
+- Edge
+
+#### Flag setting
+
+| **Paste into browser** ://
+
+```console
+chrome://flags/#enable-force-dark
+```
+
+*Set **Auto Dark Mode for Web Contents** to "Enabled with selective inversion of non-image elements"*
+
+#### [Dark Reader Chrome extension](https://chrome.google.com/webstore/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh)
 
 ___
 ## [Manjaro/Arch Install Instructions](https://github.com/inkVerb/Mi/blob/master/Arch.md)
