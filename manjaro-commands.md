@@ -16,7 +16,6 @@ sudo pacman -S filezilla --noconfirm
 sudo pacman -S gpodder --noconfirm
 sudo pacman -S rhythmbox --noconfirm
 sudo pacman -S vlc --noconfirm
-sudo pacman -S obs-studio --noconfirm
 sudo pacman -S kdenlive --noconfirm
 sudo pacman -S shotcut --noconfirm
 sudo pacman -S musescore --noconfirm
@@ -75,6 +74,12 @@ yay -S otf-gfs ttf-mgopen opensiddur-hebrew-fonts culmus --noconfirm # Hebrew & 
 yay -S rss-glx --noconfirm
 yay -S key-mon --noconfirm
 yay -S slack-desktop --noconfirm
+
+# OBS (choose)
+## OBS for AMD (to use GPU)
+yay -S obs-studio-amf
+## OBS for Nvidia
+sudo pacman -S obs-studio --noconfirm
 
 # OBS virtualcam
 #https://github.com/Fenrirthviti/obs-virtual-cam/releases
