@@ -1,12 +1,48 @@
 # Install Fcitx for Taiwan-style Mandarin typing input in Manjaro/Arch
 
-1. Update
+## Install Fcitx
+
+1. Install Input
 
 ```bash
-sudo pacman -Syyu --noconfirm
+sudo pacman -Sy --noconfirm fcitx5-im fcitx5-chinese-addons fcitx5-configtool fcitx5-chewing
 ```
 
-2. Set the locale
+2. Install Fonts
+
+```bash
+sudo pacman -S --noconfirm adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts noto-fonts-cjk wqy-microhei wqy-microhei-lite wqy-bitmapfont wqy-zenhei ttf-arphic-ukai ttf-arphic-uming
+```
+3. Run Fcitx at startup (per user)
+
+```bash
+cat <<EOF >> .xinitrc
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+EOF
+```
+
+4. Reboot
+
+```bash
+reboot
+```
+
+5. Add the input to the interface:
+
+- New input icon in system tray > Preferences
+- Uncheck the box to only show current language
+- Search "Chewing"
+- Refresh
+
+6. Use:
+
+- <key>Ctrl</key> + <key>Space</key> = Change language input
+
+## If you have trouble and need to set the locale
+
+1. Properly set the locale for your machine
 
 ```bash
 sudo cp /etc/locale.gen /etc/locale.gen.orig
@@ -15,17 +51,13 @@ sudo echo "zh_TW.UTF-8 UTF-8" >> /etc/locale.gen
 sudo locale-gen
 ```
 
-3. Reboot
-
-- Close all browsers first!
-
 ```bash
 reboot
 ```
 
-4. Set locale for your user
+2. Set locale for your user
 
-- Choose
+Choose...
 
 | **English** :
 
@@ -41,56 +73,21 @@ OR
 localectl set-locale LANG=zh_TW.UTF-8
 ```
 
-- Optionally install language packs
+- More ways to install language packs
 
 ```bash
 manjaro-settings-manager
 ```
 
-  - Language Packs > Install Packages
-
-5. Install Fcitx & Fonts
-
-- Chinese phonetic input
-  - Sun Yat-sen's bopomofo system: `fcitx-chewing`
-  - Mao Zedong's Romanized pinyin: `fcitx-googlepinyin` or `fcitx-libpinyin`
-
-```bash
-sudo pacman -S --noconfirm fcitx fcitx-im fcitx-gtk2 fcitx-gtk3 fcitx-qt5 fcitx-configtool fcitx-chewing libchewing
-```
-
-```bash
-sudo pacman -S --noconfirm adobe-source-han-sans-tw-fonts adobe-source-han-serif-tw-fonts
-```
-
-- Optional:
-
 ```bash
 yay -S --noconfirm ttf-ms-win10-zh_tw ttf-ms-win8-zh_tw
 ```
 
-6. Language Settings:
+  - Language Packs > Install Packages
 
-- Settings > Region & Language Language > Input Sources
-- Add: Chinese > Chinese (Chewing)
 
-7. Run Fcitx at startup
 
-```bash
-cat <<EOF >> .xinitrc
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
-EOF
-```
 
-8. Reboot
-
-```bash
-reboot
-```
-
-## Meta + Space = Change language input
 
 All done! Have a cookie...
 

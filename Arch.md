@@ -1,5 +1,11 @@
 # Manjaro
 
+## Create the Linux Live USB in Windows
+
+[Rufus](https://rufus.ie/downloads/)
+
+...or...
+
 ## Create a Linux Live USB via terinal
 
 1. Find the `/dev/...` name of your USB
