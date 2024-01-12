@@ -137,8 +137,8 @@ nnoremap <C-p> "+p
 vnoremap <C-p> "+p
 syntax on' > ~/.vimrc
 
-## Atom packages
-apm install linter linter-php linter-jshint linter-python linter-ui-default intentions busy-signal highlight-selected minimap minimap-highlight-selected
+# PlayStation controller
+sudo modprobe hid-playstation
 
 ## Desktop # These can be seen in dconf-editor
 dconf write /org/gnome/desktop/input-sources/xkb-options "['compose:caps']"
