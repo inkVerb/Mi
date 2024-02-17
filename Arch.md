@@ -14,7 +14,7 @@
 
 2. Write the .iso file to your USB (your USB will be erased!)
 
-| **2** :$ `sudo dd bs=4M if=manjaro-gnome-20.X.X-XXXXXX-linuxXX.iso of=/dev/sdf conv=fdatasync status=progress`
+| **2** :$ `sudo dd if=manjaro-gnome-20.X.X-XXXXXX-linuxXX.iso of=/dev/sdf bs=4M conv=fdatasync status=progress`
 
 *This example assumes:*
 
