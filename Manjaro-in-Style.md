@@ -231,6 +231,26 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 #gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ binding "'<Ctrl><Alt>t'"
 #gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ command "'gnome-terminal'"
 
+# Nice tools (We need LibreOffice; OnlyOffice doesn't have drag and drop support from files and desktop)
+sudo pacman -S gimp inkscape kid3 audacity gnome-music ffmpeg nano vlc shotcut vivaldi vivaldi-ffmpeg-codecs obs-studio libreoffice --noconfirm
+
+# Fonts
+sudo pacman -S tex-gyre-fonts ttf-ubuntu-font-family noto-fonts ttf-ibm-plex ttf-liberation ttf-dejavu ttf-junicode gnu-free-fonts ttf-droid ttf-linux-libertine gentium-plus-font ttf-cascadia-code ttf-anonymous-pro ttf-jetbrains-mono adobe-source-sans-pro-fonts --noconfirm
+yay -S ttf-ms-fonts ttf-vista-fonts --noconfirm
+yay -S ebgaramond-otf otf-bodoni ttf-courier-prime ttf-google-fonts-git otf-jost ttf-tahoma --noconfirm
+# Chinese/Japanese/Korean
+sudo pacman -S adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts --noconfirm
+# Hebrew & Greek # broken package: otf-gfs
+yay -S ttf-mgopen culmus --noconfirm
+
+# BASH prompt colors
+chsh -s /bin/bash
+sudo cp /etc/skel/.bashrc /etc/skel/.bashrc-vrkbak
+sudo cp /root/.bashrc /root/.bashrc-vrkbak
+sed -i "s:\\\W:\\\[\\\033[01;34m\\\]\\\w:g" ~/.bashrc
+sudo sed -i "s:\\\W:\\\[\\\033[01;34m\\\]\\\w:g" /etc/skel/.bashrc
+sudo sed -i "s:\\\W:\\\[\\\033[01;34m\\\]\\\w:g" /root/.bashrc
+
 # X-Terminal Settings
 ## DropdownPositionVertical=0 makes trouble for F11 & F12 in combinations (fullscreen & show/hide)
 mkdir -p ~/.config/xfce4/terminal
@@ -280,37 +300,20 @@ DropdownPositionVertical=4
 DropdownMoveToActive=FALSE
 " > ~/.config/xfce4/terminal/terminalrc
 
-# Nice tools (We need LibreOffice; OnlyOffice doesn't have drag and drop support from files and desktop)
-sudo pacman -S gimp inkscape kid3 audacity gnome-music ffmpeg nano vlc shotcut vivaldi vivaldi-ffmpeg-codecs obs-studio libreoffice --noconfirm
-
-# Fonts
-sudo pacman -S tex-gyre-fonts ttf-ubuntu-font-family noto-fonts ttf-ibm-plex ttf-liberation ttf-dejavu ttf-junicode gnu-free-fonts ttf-droid ttf-linux-libertine gentium-plus-font ttf-cascadia-code ttf-anonymous-pro ttf-jetbrains-mono adobe-source-sans-pro-fonts --noconfirm
-yay -S ttf-ms-fonts ttf-vista-fonts --noconfirm
-yay -S ebgaramond-otf otf-bodoni ttf-courier-prime ttf-google-fonts-git otf-jost ttf-tahoma --noconfirm
-# Chinese/Japanese/Korean
-sudo pacman -S adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts --noconfirm
-# Hebrew & Greek # broken package: otf-gfs
-yay -S ttf-mgopen culmus --noconfirm
-
-# BASH prompt colors
-chsh -s /bin/bash
-sudo cp /etc/skel/.bashrc /etc/skel/.bashrc-vrkbak
-sudo cp /root/.bashrc /root/.bashrc-vrkbak
-sed -i "s:\\\W:\\\[\\\033[01;34m\\\]\\\w:g" ~/.bashrc
-sudo sed -i "s:\\\W:\\\[\\\033[01;34m\\\]\\\w:g" /etc/skel/.bashrc
-sudo sed -i "s:\\\W:\\\[\\\033[01;34m\\\]\\\w:g" /root/.bashrc
-
 # Xfce-specific (not GNOME)
+## F12 / Scroll Lock for Xterminal Drop-down
+xfconf-query -n -c xfce4-keyboard-shortcuts -p "/commands/custom/F12" -t string -s 'xfce4-terminal --drop-down'
+xfconf-query -n -c xfce4-keyboard-shortcuts -p "/commands/custom/ScrLk" -t string -s 'xfce4-terminal --drop-down'
 ## Workspaces & windows
 xfconf-query -c xfwm4 -p /general/workspace_count -s 3
 xfconf-query -c xfwm4 -p /general/scroll_workspaces -s true
 xfconf-query -c xfwm4 -p /general/mousewheel_rollup -s true
 xfconf-query -c xfwm4 -p /general/tile_on_move -s true
 
+## Compose Key: CapLock key
+/usr/bin/xfconf-query -n -c keyboard-layout -p /Default/XkbOptions/Compose -t string -s "compose:caps"
+
 ## Hot keys
-### F12 / Scroll Lock for Xterminal Drop-down
-xfconf-query -n -c xfce4-keyboard-shortcuts -p "/commands/custom/F12" -t string -s 'xfce4-terminal --drop-down'
-xfconf-query -n -c xfce4-keyboard-shortcuts -p "/commands/custom/ScrLk" -t string -s 'xfce4-terminal --drop-down'
 ### Whisker menu
 xfconf-query -n -c xfce4-keyboard-shortcuts -p "/commands/custom/Super_L" -t string -s 'xfce4-popup-whiskermenu'
 xfconf-query -n -c xfce4-keyboard-shortcuts -p "/commands/custom/Super_R" -t string -s 'xfce4-popup-whiskermenu'

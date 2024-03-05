@@ -218,6 +218,17 @@ sed -i "s:\\\W:\\\[\\\033[01;34m\\\]\\\w:g" /root/.bashrc
 # Exampl: UUID=7953d115-6c12-4810-80a8-68ab94995e96  /mnt/sda3  ext4  defaults,noatime 0 2
 4. sudo mount -a # reload
 
+# Remove an unwanted user from the Xwindow login screen
+## Each user with a login to the GUI at boot has a file in: /var/lib/AccountsService/users
+ls /var/lib/AccountsService/users/
+# If the user no longer exists: Remove the file named after the user
+# If the user exists, but to remove from login (ie root), add a line: SystemAccount=true
+
+# CLI video streamer
+## https://skillfulness.blogspot.com/2010/03/mjpg-streamer-documentation.html
+yay -S mjpg-streamer
+mjpg_streamer --input "input_uvc.so --help"
+
 # to find the available settings in gsettings, for instance: `dash-to-dock`
 gsettings list-schemas
 gsettings list-keys org.gnome.shell.extensions.dash-to-dock
