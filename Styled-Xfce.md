@@ -6,6 +6,7 @@ Copy and paste these commands to set Manjaro the way it aughtta be!
 ```
 
 ## Disable lock screen
+xfconf-query -c xfce4-screensaver -p /lock/enabled -n -t string -s 'true'
 xfconf-query -c xfce4-screensaver -np '/lock/enabled' -s 'false'
 ### gsettings (legacy?)
 /usr/bin/gsettings set apps.light-locker late-locking false
