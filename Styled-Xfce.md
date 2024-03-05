@@ -1,24 +1,21 @@
-# Debian in Style
-*Kali Linux, Xubuntu, et al*
+# Xfce in Style
+*Kali Linux, Xubuntu, Arch, et al*
 
 Copy and paste these commands to set Manjaro the way it aughtta be!
 
 ```
-# Update & upgrade
-sudo apt-get update && sudo apt-get upgrade -y
-
-# Install X-Terminal
-sudo apt-get install -y xfce4-terminal
 
 ## Disable lock screen
-gsettings set apps.light-locker late-locking false
-gsettings set apps.light-locker lock-after-screensaver 0
-gsettings set apps.light-locker lock-on-suspend true
+xfconf-query -c xfce4-screensaver -np '/lock/enabled' -s 'false'
+### gsettings (legacy?)
+/usr/bin/gsettings set apps.light-locker late-locking false
+/usr/bin/gsettings set apps.light-locker lock-after-screensaver 0
+/usr/bin/gsettings set apps.light-locker lock-on-suspend true
 
 ## Mouse cursor theme
 gsettings set org.gnome.desktop.interface cursor-theme "DMZ-Black"
 
-## Desktop prefer dark
+## Desktop prefer dark (works on Xfce)
 gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
 
 # X-Terminal Settings
@@ -70,7 +67,6 @@ DropdownPositionVertical=4
 DropdownMoveToActive=FALSE
 " > ~/.config/xfce4/terminal/terminalrc
 
-# Xfce-specific (not GNOME)
 ## F12 / Scroll Lock for Xterminal Drop-down
 xfconf-query -n -c xfce4-keyboard-shortcuts -p "/commands/custom/F12" -t string -s 'xfce4-terminal --drop-down'
 xfconf-query -n -c xfce4-keyboard-shortcuts -p "/commands/custom/ScrLk" -t string -s 'xfce4-terminal --drop-down'

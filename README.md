@@ -26,9 +26,10 @@ chrome://flags/#enable-force-dark
 ___
 ## [Manjaro/Arch Install Instructions](https://github.com/inkVerb/Mi/blob/master/Arch.md)
 ___
-## [Arch in Style](https://github.com/inkVerb/Mi/blob/master/Arch-in-Style.md)
-## [Debian in Style](https://github.com/inkVerb/Mi/blob/main/Debian-in-Style.md)
-## [CentOS in Style](https://github.com/inkVerb/Mi/blob/main/CentOS-in-Style.md)
+## [Xfce in Style](https://github.com/inkVerb/Mi/blob/main/Styled-Xfce.md)
+## [Arch in Style](https://github.com/inkVerb/Mi/blob/master/Styled-Arch.md)
+## [Debian in Style](https://github.com/inkVerb/Mi/blob/main/Styled-Debian.md)
+## [CentOS in Style](https://github.com/inkVerb/Mi/blob/main/Styled-CentOS.md)
 ## [BIOS, EFI & Other Settings for Linux](https://github.com/inkVerb/Mi/blob/master/install-BIOS-UEFI.md)
 ## [Fcitx for Taiwan Chinese typing input](https://github.com/inkVerb/Mi/blob/main/Fcitx_zh_TW.md)
 ## Ebooks & Kindle: [Get More Out Of Your Kindle In Linux With These Simple Tips // It's FOSS @ Abhishek Prakash ](https://itsfoss.com/kindle-linux-tips/)
