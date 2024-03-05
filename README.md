@@ -26,7 +26,8 @@ chrome://flags/#enable-force-dark
 ___
 ## [Manjaro/Arch Install Instructions](https://github.com/inkVerb/Mi/blob/master/Arch.md)
 ___
-## [Manjaro in Style](https://github.com/inkVerb/Mi/blob/master/Manjaro-in-Style.md)
+## [Arch in Style](https://github.com/inkVerb/Mi/blob/master/Arch-in-Style.md)
+## [Debian in Style](https://github.com/inkVerb/Mi/blob/main/Debian-in-Style.md)
 ## [CentOS in Style](https://github.com/inkVerb/Mi/blob/main/CentOS-in-Style.md)
 ## [BIOS, EFI & Other Settings for Linux](https://github.com/inkVerb/Mi/blob/master/install-BIOS-UEFI.md)
 ## [Fcitx for Taiwan Chinese typing input](https://github.com/inkVerb/Mi/blob/main/Fcitx_zh_TW.md)

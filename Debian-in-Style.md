@@ -8,21 +8,18 @@ Copy and paste these commands to set Manjaro the way it aughtta be!
 sudo apt-get update && sudo apt-get upgrade -y
 
 # Install X-Terminal
-## Kali Linux
-sudo apt-get install -y kali-desktop-xfce
-## Ubuntu
 sudo apt-get install -y xfce4-terminal
 
 ## Disable lock screen
-/usr/bin/gsettings set apps.light-locker late-locking false
-/usr/bin/gsettings set apps.light-locker lock-after-screensaver 0
-/usr/bin/gsettings set apps.light-locker lock-on-suspend true
+gsettings set apps.light-locker late-locking false
+gsettings set apps.light-locker lock-after-screensaver 0
+gsettings set apps.light-locker lock-on-suspend true
 
 ## Mouse cursor theme
-/usr/bin/gsettings set org.gnome.desktop.interface cursor-theme "DMZ-Black"
+gsettings set org.gnome.desktop.interface cursor-theme "DMZ-Black"
 
 ## Desktop prefer dark
-/usr/bin/gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
 
 # X-Terminal Settings
 ## DropdownPositionVertical=0 makes trouble for F11 & F12 in combinations (fullscreen & show/hide)
@@ -84,7 +81,7 @@ xfconf-query -c xfwm4 -p /general/mousewheel_rollup -s true
 xfconf-query -c xfwm4 -p /general/tile_on_move -s true
 
 ## Compose Key: CapLock key
-/usr/bin/xfconf-query -n -c keyboard-layout -p /Default/XkbOptions/Compose -t string -s "compose:caps"
+xfconf-query -n -c keyboard-layout -p /Default/XkbOptions/Compose -t string -s "compose:caps"
 
 ## Hot keys
 ### Whisker menu
@@ -126,5 +123,15 @@ xfconf-query -n -c xfdashboard -p /enabled-plugins -a -t string -s hot-corner
 xfconf-query -n -t string -c xfdashboard -p /plugins/hot-corner/activation-corner -s XFDASHBOARD_HOT_CORNER_SETTINGS_ACTIVATION_CORNER_TOP_LEFT
 xfconf-query -n -t string -c xfdashboard -p /plugins/hot-corner/activation-duration -s 27
 xfconf-query -n -t string -c xfdashboard -p /plugins/hot-corner/activation-radius -s 1
+
+## Default Xfce window Alt+Click move/resize (if it ever got changed)
+xfconf-query -c xfwm4 -p /general/easy_click -t string -s 'Alt'
+
+# ##### WARNING: ONLY FOR VIRTUALBOX #####
+# Window navigation for VirtualBox: (Where Alt+Click is not captured)
+## Ctrl+Alt: Move window
+xfconf-query -n -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Primary>Alt_L" -t string -s 'move_window_key'
+## Alt+Shift: Resize window
+xfconf-query -n -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Alt>Shift_L" -t string -s 'resize_window_key'
 
 ```

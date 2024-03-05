@@ -269,4 +269,14 @@ xfconf-query -n -c xfdashboard -p /enabled-plugins -a -t string -s hot-corner
 xfconf-query -n -t string -c xfdashboard -p /plugins/hot-corner/activation-corner -s XFDASHBOARD_HOT_CORNER_SETTINGS_ACTIVATION_CORNER_TOP_LEFT
 xfconf-query -n -t string -c xfdashboard -p /plugins/hot-corner/activation-duration -s 27
 xfconf-query -n -t string -c xfdashboard -p /plugins/hot-corner/activation-radius -s 1
+
+## Default Xfce window Alt+Click move/resize (if it ever got changed)
+xfconf-query -c xfwm4 -p /general/easy_click -t string -s 'Alt'
+
+# ##### WARNING: ONLY FOR VIRTUALBOX #####
+# Window navigation for VirtualBox: (Where Alt+Click is not captured)
+## Ctrl+Alt: Move window
+xfconf-query -n -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Primary>Alt_L" -t string -s 'move_window_key'
+## Alt+Shift: Resize window
+xfconf-query -n -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Alt>Shift_L" -t string -s 'resize_window_key'
 ```
