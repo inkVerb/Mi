@@ -4,11 +4,18 @@
 Copy and paste these commands to set Manjaro the way it aughtta be!
 
 ```
-#DEV many configs are in ~/.config/xfce4/xfconf/xfce-perchannel-xml
+#DEV many configs are in ~/.config/xfce4/xfconf/xfce-perchannel-xml and can be found for normal xml structured queries 
 
 ## Disable lock screen & screensaver
 xfconf-query -c xfce4-screensaver -np '/lock/enabled' -s 'false'
 xfconf-query -c xfce4-screensaver -np '/saver/enabled' -s 'false'
+xfconf-query -c xfce4-power-manager -np '/xfce4-power-manager/blank-on-ac' -s '0'
+xfconf-query -c xfce4-power-manager -np '/xfce4-power-manager/blank-on-battery' -s '0'
+xfconf-query -c xfce4-power-manager -np '/xfce4-power-manager/dpms-enabled' -s 'false'
+xfconf-query -c xfce4-power-manager -np '/xfce4-power-manager/dpms-on-ac-sleep' -s '0'
+xfconf-query -c xfce4-power-manager -np '/xfce4-power-manager/dpms-on-ac-off' -s '0'
+xfconf-query -c xfce4-power-manager -np '/xfce4-power-manager/dpms-on-battery-sleep' -s '0'
+xfconf-query -c xfce4-power-manager -np '/xfce4-power-manager/dpms-on-battery-off' -s '0'
 ### gsettings (legacy?)
 /usr/bin/gsettings set apps.light-locker late-locking false
 /usr/bin/gsettings set apps.light-locker lock-after-screensaver 0
@@ -105,6 +112,7 @@ xfconf-query -n -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Alt><Super>Right"
 xfconf-query -n -c xfce4-keyboard-shortcuts -p "/commands/custom/<Super>d" -t string -s 'gedit'
 xfconf-query -n -c xfce4-keyboard-shortcuts -p "/commands/custom/<Super>e" -t string -s 'thunar'
 xfconf-query -n -c xfce4-keyboard-shortcuts -p "/commands/custom/<Super>q" -t string -s 'gnome-calculator'
+xfconf-query -n -c xfce4-keyboard-shortcuts -p "/commands/custom/<Ctrl><Alt>t" -t string -s 'xfce4-terminal'
 
 ## Xfdashboard
 ###DEV see available options: xfconf-query -c xfdashboard -lv
