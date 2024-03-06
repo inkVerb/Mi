@@ -7,15 +7,15 @@ Copy and paste these commands to set Manjaro the way it aughtta be!
 #DEV many configs are in ~/.config/xfce4/xfconf/xfce-perchannel-xml and can be found for normal xml structured queries 
 
 ## Disable lock screen & screensaver
-xfconf-query -c xfce4-screensaver -np '/lock/enabled' -s 'false'
-xfconf-query -c xfce4-screensaver -np '/saver/enabled' -s 'false'
-xfconf-query -c xfce4-power-manager -np '/xfce4-power-manager/blank-on-ac' -s '0'
-xfconf-query -c xfce4-power-manager -np '/xfce4-power-manager/blank-on-battery' -s '0'
-xfconf-query -c xfce4-power-manager -np '/xfce4-power-manager/dpms-enabled' -s 'false'
-xfconf-query -c xfce4-power-manager -np '/xfce4-power-manager/dpms-on-ac-sleep' -s '0'
-xfconf-query -c xfce4-power-manager -np '/xfce4-power-manager/dpms-on-ac-off' -s '0'
-xfconf-query -c xfce4-power-manager -np '/xfce4-power-manager/dpms-on-battery-sleep' -s '0'
-xfconf-query -c xfce4-power-manager -np '/xfce4-power-manager/dpms-on-battery-off' -s '0'
+xfconf-query -c xfce4-screensaver -np '/lock/enabled' -t bool -s 'false'
+xfconf-query -c xfce4-screensaver -np '/saver/enabled' -t bool -s 'false'
+xfconf-query -c xfce4-power-manager -np '/xfce4-power-manager/blank-on-ac' -t int -s '0'
+xfconf-query -c xfce4-power-manager -np '/xfce4-power-manager/blank-on-battery' -t int -s '0'
+xfconf-query -c xfce4-power-manager -np '/xfce4-power-manager/dpms-enabled' -t bool -s 'false'
+xfconf-query -c xfce4-power-manager -np '/xfce4-power-manager/dpms-on-ac-sleep' -t int -s '0'
+xfconf-query -c xfce4-power-manager -np '/xfce4-power-manager/dpms-on-ac-off' -t int -s '0'
+xfconf-query -c xfce4-power-manager -np '/xfce4-power-manager/dpms-on-battery-sleep' -t int -s '0'
+xfconf-query -c xfce4-power-manager -np '/xfce4-power-manager/dpms-on-battery-off' -t int -s '0'
 ### gsettings (legacy?)
 /usr/bin/gsettings set apps.light-locker late-locking false
 /usr/bin/gsettings set apps.light-locker lock-after-screensaver 0
@@ -132,6 +132,14 @@ xfconf-query -n -t string -c xfdashboard -p /plugins/hot-corner/activation-radiu
 
 ## Default Xfce window Alt+Click move/resize (if it ever got changed)
 xfconf-query -c xfwm4 -p /general/easy_click -t string -s 'Alt'
+
+# Setup Vim for copy to clipboard
+echo 'nnoremap <C-c> "+y
+vnoremap <C-c> "+y
+nnoremap <C-p> "+p
+vnoremap <C-p> "+p
+syntax on
+set number' > ~/.vimrc
 
 # ##### WARNING: ONLY FOR VIRTUALBOX #####
 # Window navigation for VirtualBox: (Where Alt+Click is not captured)
