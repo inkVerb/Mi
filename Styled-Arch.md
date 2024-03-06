@@ -105,7 +105,7 @@ gnome-extensions enable arcmenu@arcmenu.com
 gsettings set org.gnome.shell.extensions.arcmenu menu-button-icon 'Distro_Icon'
 #gsettings set org.gnome.shell.extensions.arcmenu menu-button-icon 'Arc_Menu_Icon'
 gsettings set org.gnome.shell.extensions.arcmenu multi-monitor true
-gsettings set org.gnome.shell.extensions.arcmenu enable-menu-hotkey false
+gsettings set org.gnome.shell.extensions.arcmenu arcmenu-hotkey 'Super_R'
 
 # Dash to Dock
 gnome-extensions enable dash-to-dock@micxgx.gmail.com
