@@ -242,13 +242,27 @@ gnome-extensions enable dash-to-dock@micxgx.gmail.com
 gnome-shell-extension-prefs
 
 # See how settings happen
+dconf dump /
+dconf dump /org/gnome/desktop/input-sources/
+dconf dump /org/gnome/desktop/wm/keybindings/
+dconf dump /org/gnome/shell/extensions/dash-to-panel/
 dconf watch /
 
 # gsettings vs dconf
+dconf read /org/gnome/desktop/input-sources/xkb-options
+gsettings get org.gnome.desktop.input-sources xkb-options
 dconf write /org/gnome/desktop/input-sources/xkb-options "['compose:caps']"
 gsettings set org.gnome.desktop.input-sources xkb-options "['compose:caps']"
+
+dconf read /org/gnome/desktop/wm/keybindings/close
+gsettings get org.gnome.desktop.wm.keybindings close
 dconf write /org/gnome/desktop/wm/keybindings/close "['<Alt>F4']"
 gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>F4']"
+
+dconf read /org/gnome/shell/extensions/dash-to-panel/available-monitors
+gsettings get org.gnome.shell.extensions.dash-to-panel available-monitors
+dconf write /org/gnome/shell/extensions/dash-to-panel/available-monitors "[1, 0]"
+gsettings set org.gnome.shell.extensions.dash-to-panel available-monitors "[1, 0]"
 ```
 
 | **gsettings-iterate-all** :
