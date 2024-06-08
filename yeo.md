@@ -18,8 +18,8 @@ sudo chsh -s /usr/sbin/bash worker 1> /dev/null 2>& 1
 
 sudo mkdir -p /opt/vrk/donjon
 sudo touch /opt/vrk/donjon/yeo.sh
+sudo chmod 755 /opt/vrk/donjon/yeo.sh
 sudo ln -sfn /opt/vrk/donjon/yeo.sh /usr/local/bin/yeo
-sudo vim /opt/vrk/donjon/yeo.sh
 ```
 
 | **2** :$ this will need `su` (if you don't know how, don't do this)
@@ -32,7 +32,7 @@ echo 'worker ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/worker
 vim /opt/vrk/donjon/yeo.sh
 ```
 
-| **yeo.sh** :
+| **yeo.sh** : paste this into the `vim` editor now open in the browser
 
 ```bash
 #!/bin/bash
