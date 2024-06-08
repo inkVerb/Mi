@@ -64,6 +64,7 @@ yay -S --noconfirm vulkan-amdgpu-pro
 yay -S google-chrome --noconfirm
 yay -S skype --noconfirm
 yay -S dropbox --noconfirm
+yay -S pureref --noconfirm
 yay -S subtitlecomposer --noconfirm
 yay -S adduser --noconfirm
 yay -S twinkle --noconfirm
@@ -258,6 +259,11 @@ dconf read /org/gnome/desktop/wm/keybindings/close
 gsettings get org.gnome.desktop.wm.keybindings close
 dconf write /org/gnome/desktop/wm/keybindings/close "['<Alt>F4']"
 gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>F4']"
+
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "['<Control><Alt>Left']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "['<Control><Alt>Right']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-up "['<Control><Alt>Up']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-down "['<Control><Alt>Down']"
 
 dconf read /org/gnome/shell/extensions/dash-to-panel/available-monitors
 gsettings get org.gnome.shell.extensions.dash-to-panel available-monitors
