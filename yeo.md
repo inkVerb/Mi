@@ -5,20 +5,36 @@ This creates a `worker` that can run `sudo` commands once directed, then the `ye
 
 Copy and paste at your own risk!
 
+| **1** :$ paste into normal terminal
+
 ```
 sudo groupadd worker
 sudo useradd -g worker worker
-sudo usermod -a -G wheel worker
 sudo mkdir -p /opt/vrk/worker
 sudo chown -R worker:worker /opt/vrk/worker
 sudo usermod -d /opt/vrk/worker worker
-sudo echo 'worker ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/worker
 sudo usermod -L worker
 sudo chsh -s /usr/sbin/bash worker 1> /dev/null 2>& 1
 
 sudo mkdir -p /opt/vrk/donjon
+sudo touch /opt/vrk/donjon/yeo.sh
+sudo ln -sfn /opt/vrk/donjon/yeo.sh /usr/local/bin/yeo
+sudo vim /opt/vrk/donjon/yeo.sh
+```
 
-sudo cat <<EOF >
+| **2** :$ this will need `su` (if you don't know how, don't do this)
+
+```
+# Below, enter the password you already knew how to make
+su
+echo 'worker ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/worker
+# Below, paste the file below into yeo.sh
+vim /opt/vrk/donjon/yeo.sh
+```
+
+| **yeo.sh** :
+
+```bash
 #!/bin/bash
 #inkVerbInk! verb.ink
 
@@ -51,7 +67,4 @@ else
   /usr/bin/echo "No \"quotes\" allowed!"
   exit 1
 fi
-EOF
-
-sudo ln -sfn /opt/vrk/donjon/yeo.sh /usr/local/bin/yeo
 ```
