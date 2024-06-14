@@ -187,11 +187,21 @@ gsettings set org.gnome.gedit.preferences.editor scheme 'atom-one'
 ## Copy themes to dir
 sudo cp atom-one.xml /usr/share/gtksourceview-4/styles/
 
+# Guake
+dconf write /org/guake/keybindings/global/show-hide "'F12'"
+dconf write /org/guake/general/window-vertical-displacement 40
+dconf write /org/guake/general/use-trayicon false
+dconf write /org/guake/general/start-at-login true
+dconf write /org/guake/general/prompt-on-quit false
+dconf write /org/guake/general/window-height 25
+dconf write /org/guake/general/use-popup false
+dconf write /org/guake/general/gtk-use-system-default-theme true
+
 ## Terminal keyboard shortcuts
 gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/']"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name "'Dropdown Terminal'"
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "'f12'"
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command "'xfce4-terminal  --drop-down'"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "'<Ctrl>f12'"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command "'xfce4-terminal --drop-down'"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ name "'Gnome Terminal'"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ binding "'<Ctrl><Alt>t'"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ command "'gnome-terminal'"
@@ -209,7 +219,6 @@ sudo cp /root/.bashrc /root/.bashrc-vrkbak
 sed -i "s:\\\W:\\\[\\\033[01;34m\\\]\\\w:g" ~/.bashrc
 sed -i "s:\\\W:\\\[\\\033[01;34m\\\]\\\w:g" /etc/skel/.bashrc
 sed -i "s:\\\W:\\\[\\\033[01;34m\\\]\\\w:g" /root/.bashrc
-
 
 # Mount Disk at boot
 1. sudo blkid # Get info of device (UUID & TYPE)

@@ -24,7 +24,7 @@ cd ..
 rm -rf yay
 
 # Developer tools
-sudo pacman -S --noconfirm filezilla gitlab obsidian nextcloud-client
+sudo pacman -S --noconfirm filezilla gitlab obsidian nextcloud-client guake
 yay -S --noconfirm slack-desktop gitter-bin vscodium-bin
 ## Themes & extensions
 codium --install-extension emroussel.atomize-atom-one-dark-theme
@@ -48,7 +48,6 @@ sudo pacman -S lutris
 ## Method 2: Install the Heroic launcher
 yay -S heroic-games-launcher-bin # Also consider: heroic-games-launcher and heroic-games-launcher-git
 ### Login using "Epic Alternative Login" (if reCaptcha challegne gives false fails, which it often does)
-
 
 # Setup Vim for copy to clipboard
 echo 'nnoremap <C-c> "+y
@@ -105,7 +104,7 @@ gnome-extensions enable arcmenu@arcmenu.com
 gsettings set org.gnome.shell.extensions.arcmenu menu-button-icon 'Distro_Icon'
 #gsettings set org.gnome.shell.extensions.arcmenu menu-button-icon 'Arc_Menu_Icon'
 gsettings set org.gnome.shell.extensions.arcmenu multi-monitor true
-gsettings set org.gnome.shell.extensions.arcmenu arcmenu-hotkey 'Super_R'
+gsettings set org.gnome.shell.extensions.arcmenu arcmenu-hotkey '['Super_R']'
 
 # Dash to Dock
 gnome-extensions enable dash-to-dock@micxgx.gmail.com
@@ -142,7 +141,6 @@ gsettings set org.gnome.shell.extensions.dash-to-panel panel-positions '{"0":"TO
 gsettings set org.gnome.shell.extensions.dash-to-panel panel-position 'TOP'
 gsettings set org.gnome.shell.extensions.dash-to-panel panel-lengths '{"0":100}'
 gsettings set org.gnome.shell.extensions.dash-to-panel panel-element-positions '{"0":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}'
-gsettings set org.gnome.shell.extensions.dash-to-panel show-appmenu false
 gsettings set org.gnome.shell.extensions.dash-to-panel show-activities-button false
 gsettings set org.gnome.shell.extensions.dash-to-panel show-favorites true
 gsettings set org.gnome.shell.extensions.dash-to-panel show-favorites-all-monitors true
@@ -154,12 +152,6 @@ gsettings set org.gnome.shell.extensions.dash-to-panel show-favorites-all-monito
 gsettings set org.gnome.shell.extensions.dash-to-panel dot-style-focused 'CILIORA'
 gsettings set org.gnome.shell.extensions.dash-to-panel dot-style-unfocused 'CILIORA'
 gsettings set org.gnome.shell.extensions.arcmenu gnome-dash-show-applications false
-
-# Set theme & icons
-# Desktop theme for legacy applications
-gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-maia-compact-dark'
-gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Adapta-Nokto-Maia'
-gsettings set org.gnome.shell.extensions.user-theme name 'Adwaita-maia-compact-dark'
 
 # OnlyOffice to Dark theme
 sed -i "s/UITheme=theme-.*/UITheme=theme-dark/" ~/.config/onlyoffice/DesktopEditors.conf
@@ -224,7 +216,7 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "'Scroll_Lock'"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command "'xfce4-terminal --drop-down'"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ name "'Dropdown Terminal: F12'"
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ binding "'f12'"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ binding "'<Ctrl>f12'"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ command "'xfce4-terminal --drop-down'"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ name "'Xfce Terminal'"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ binding "'<Ctrl><Alt>t'"
@@ -232,6 +224,16 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 #gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ name "'Gnome Terminal'"
 #gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ binding "'<Ctrl><Alt>t'"
 #gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ command "'gnome-terminal'"
+
+# Guake (Needs Dconf)
+dconf write /org/guake/keybindings/global/show-hide "'F12'"
+dconf write /org/guake/general/window-vertical-displacement 40
+dconf write /org/guake/general/use-trayicon false
+dconf write /org/guake/general/start-at-login true
+dconf write /org/guake/general/prompt-on-quit false
+dconf write /org/guake/general/window-height 25
+dconf write /org/guake/general/use-popup false
+dconf write /org/guake/general/gtk-use-system-default-theme true
 
 # Nice tools (We need LibreOffice; OnlyOffice doesn't have drag and drop support from files and desktop)
 sudo pacman -S gimp inkscape kid3 audacity gnome-music ffmpeg nano vlc shotcut vivaldi vivaldi-ffmpeg-codecs obs-studio libreoffice --noconfirm
@@ -305,7 +307,7 @@ DropdownMoveToActive=FALSE
 ## AMD drivers
 ### AMD DRI driver for 3D acceleration
 https://wiki.archlinux.org/title/AMDGPU
-sudp pacman -S mesa --noconfirm
+sudo pacman -S mesa --noconfirm
 ## AMD Pro Drivers
 https://aur.archlinux.org/pkgbase/amdgpu-pro-installer
 yay -S amdgpu-pro-installer # May be broken, read notes on AUR page
