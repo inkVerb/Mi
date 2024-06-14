@@ -216,5 +216,39 @@ DropdownToggleFocus=TRUE
 DropdownPositionVertical=4
 DropdownMoveToActive=FALSE
 " > ~/.config/xfce4/terminal/terminalrc
+cat <<EOF > ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-terminal.xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-terminal" version="1.0">
+  <property name="background-mode" type="string" value="TERMINAL_BACKGROUND_TRANSPARENT"/>
+  <property name="background-darkness" type="double" value="0.73999999999999999"/>
+  <property name="misc-borders-default" type="bool" value="false"/>
+  <property name="misc-show-unsafe-paste-dialog" type="bool" value="false"/>
+  <property name="misc-middle-click-opens-uri" type="bool" value="true"/>
+  <property name="dropdown-width" type="uint" value="100"/>
+  <property name="dropdown-keep-open-default" type="bool" value="true"/>
+  <property name="dropdown-toggle-focus" type="bool" value="true"/>
+  <property name="dropdown-keep-above" type="bool" value="true"/>
+  <property name="dropdown-status-icon" type="bool" value="false"/>
+  <property name="color-foreground" type="string" value="#ffffff"/>
+  <property name="color-background" type="string" value="#000000"/>
+  <property name="color-background-vary" type="bool" value="false"/>
+  <property name="color-cursor-foreground" type="string" value=""/>
+  <property name="color-cursor" type="string" value=""/>
+  <property name="color-cursor-use-default" type="bool" value="true"/>
+  <property name="color-selection" type="string" value=""/>
+  <property name="color-selection-background" type="string" value=""/>
+  <property name="color-selection-use-default" type="bool" value="true"/>
+  <property name="color-bold" type="string" value=""/>
+  <property name="color-bold-use-default" type="bool" value="true"/>
+  <property name="color-palette" type="string" value="#000000;#cc0000;#4e9a06;#c4a000;#3465a4;#75507b;#06989a;#d3d7cf;#555753;#ef2929;#8ae234;#fce94f;#739fcf;#ad7fa8;#34e2e2;#eeeeec"/>
+  <property name="color-bold-is-bright" type="bool" value="true"/>
+  <property name="color-use-theme" type="bool" value="false"/>
+  <property name="tab-activity-color" type="string" value="#aa0000"/>
+  <property name="dropdown-height" type="uint" value="33"/>
+  <property name="dropdown-move-to-active" type="bool" value="false"/>
+  <property name="dropdown-position-vertical" type="uint" value="4"/>
+</channel>
+EOF
 
 ```
