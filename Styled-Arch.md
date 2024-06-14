@@ -234,6 +234,7 @@ dconf write /org/guake/general/prompt-on-quit false
 dconf write /org/guake/general/window-height 25
 dconf write /org/guake/general/use-popup false
 dconf write /org/guake/general/gtk-use-system-default-theme true
+dconf write /org/guake/style/font/palette-name "'One Dark'"
 
 # Nice tools (We need LibreOffice; OnlyOffice doesn't have drag and drop support from files and desktop)
 sudo pacman -S gimp inkscape kid3 audacity gnome-music ffmpeg nano vlc shotcut vivaldi vivaldi-ffmpeg-codecs obs-studio libreoffice --noconfirm

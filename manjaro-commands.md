@@ -196,6 +196,7 @@ dconf write /org/guake/general/prompt-on-quit false
 dconf write /org/guake/general/window-height 25
 dconf write /org/guake/general/use-popup false
 dconf write /org/guake/general/gtk-use-system-default-theme true
+dconf write /org/guake/style/font/palette-name "'One Dark'"
 
 ## Terminal keyboard shortcuts
 gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/']"
