@@ -86,6 +86,7 @@ gsettings set org.gnome.settings-daemon.plugins.power power-button-action 'inter
 gsettings set org.gnome.shell.keybindings toggle-application-view "['<Ctrl>Super_L']"
 gsettings set org.gnome.shell.keybindings toggle-overview "['<Super>']"
 gsettings set org.gnome.desktop.background show-desktop-icons true
+dconf write /org/gtk/gtk4/settings/file-chooser/sort-directories-first true
 
 # Workspace switching (defaults)
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "['<Control><Alt>Left']"
@@ -212,10 +213,10 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys volume-step 3
 #gsettings get org.gnome.settings-daemon.plugins.media-keys volume-step
 
 # Terminal keyboard shortcuts
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name "'Dropdown Terminal: ScrLk'"
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "'Scroll_Lock'"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name "'Dropdown Terminal: Pause'"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "'Pause'"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command "'xfce4-terminal --drop-down'"
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ name "'Dropdown Terminal: F12'"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ name "'Dropdown Terminal: Ctrl+F12'"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ binding "'<Ctrl>f12'"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ command "'xfce4-terminal --drop-down'"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ name "'Xfce Terminal'"
@@ -226,7 +227,8 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 #gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ command "'gnome-terminal'"
 
 # Guake (Needs Dconf)
-dconf write /org/guake/keybindings/global/show-hide "'F12'"
+dconf write /org/guake/keybindings/global/show-hide "'Scroll_Lock'"
+dconf write /org/guake/general/window-refocus true
 dconf write /org/guake/general/window-vertical-displacement 40
 dconf write /org/guake/general/use-trayicon false
 dconf write /org/guake/general/start-at-login true
@@ -234,7 +236,7 @@ dconf write /org/guake/general/prompt-on-quit false
 dconf write /org/guake/general/window-height 25
 dconf write /org/guake/general/use-popup false
 dconf write /org/guake/general/gtk-use-system-default-theme true
-dconf write /org/guake/style/font/palette-name "'One Dark'"
+dconf write /org/guake/style/font/palette-name "'Ollie'"
 
 # Nice tools (We need LibreOffice; OnlyOffice doesn't have drag and drop support from files and desktop)
 sudo pacman -S gimp inkscape kid3 audacity gnome-music ffmpeg nano vlc shotcut vivaldi vivaldi-ffmpeg-codecs obs-studio libreoffice --noconfirm

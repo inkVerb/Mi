@@ -3,6 +3,8 @@
 
 Copy and paste these commands to set Manjaro the way it aughtta be!
 
+(This presumes guake is installed for Scroll Lock dropdown terminal, but it isn't essential)
+
 ```
 #DEV many configs are in ~/.config/xfce4/xfconf/xfce-perchannel-xml and can be found for normal xml structured queries 
 
@@ -26,6 +28,19 @@ gsettings set org.gnome.desktop.interface cursor-theme "DMZ-Black"
 
 ## Desktop prefer dark (works on Xfce)
 gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+
+# Guake
+#/usr/bin/dconf write /org/guake/keybindings/global/show-hide "'Print'"
+/usr/bin/dconf write /org/guake/keybindings/global/show-hide "'Scroll_Lock'"
+dconf write /org/guake/general/window-refocus true
+/usr/bin/dconf write /org/guake/general/window-vertical-displacement 40
+/usr/bin/dconf write /org/guake/general/use-trayicon false
+/usr/bin/dconf write /org/guake/general/start-at-login true
+/usr/bin/dconf write /org/guake/general/prompt-on-quit false
+/usr/bin/dconf write /org/guake/general/window-height 25
+/usr/bin/dconf write /org/guake/general/use-popup false
+/usr/bin/dconf write /org/guake/general/gtk-use-system-default-theme true
+/usr/bin/dconf write /org/guake/style/font/palette-name "'Ollie'"
 
 # X-Terminal Settings
 ## DropdownPositionVertical=0 makes trouble for F11 & F12 in combinations (fullscreen & show/hide)
@@ -112,7 +127,8 @@ EOF
 
 ## Ctrl+F12 / Scroll Lock for Xterminal Drop-down
 xfconf-query -n -c xfce4-keyboard-shortcuts -p "/commands/custom/<Ctrl>F12" -t string -s 'xfce4-terminal --drop-down'
-xfconf-query -n -c xfce4-keyboard-shortcuts -p "/commands/custom/ScrLk" -t string -s 'xfce4-terminal --drop-down'
+xfconf-query -n -c xfce4-keyboard-shortcuts -p "/commands/custom/Print" -t string -s 'xfce4-terminal --drop-down'
+#xfconf-query -n -c xfce4-keyboard-shortcuts -p "/commands/custom/ScrLk" -t string -s 'xfce4-terminal --drop-down'
 ## Workspaces & windows
 xfconf-query -c xfwm4 -p /general/workspace_count -s 3
 xfconf-query -c xfwm4 -p /general/scroll_workspaces -s true
