@@ -2,6 +2,8 @@
 
 - There's more for [Xfce in Style](https://github.com/inkVerb/Mi/blob/main/Styled-Xfce.md)
 
+Copy and paste these commands to make the RedHat environment less the way it aughtta not be!
+
 ```
 # Lists (FYI)
 sudo dnf repolist

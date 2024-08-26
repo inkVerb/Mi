@@ -1,7 +1,7 @@
 # Xfce in Style
 *Kali Linux, Xubuntu, Arch, et al*
 
-Copy and paste these commands to set Manjaro the way it aughtta be!
+Copy and paste these commands to set Linux Desktop the way it aughtta be!
 
 (This presumes guake is installed for Scroll Lock dropdown terminal, but it isn't essential)
 

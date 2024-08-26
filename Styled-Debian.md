@@ -3,7 +3,7 @@
 
 - There's more for [Xfce in Style](https://github.com/inkVerb/Mi/blob/main/Styled-Xfce.md)
 
-Copy and paste these commands to set Manjaro the way it aughtta be!
+Copy and paste these commands to set Linux Desktop the way it aughtta be!
 
 ```
 # Update & upgrade
