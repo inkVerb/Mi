@@ -9,7 +9,9 @@ Instead of this: `yay -S some-package` (then babysit to watch for `sudo` passwor
 
 ## Reasoning
 
-This creates a `worker` user that can run `sudo` commands once directed. Then, the `yeo.sh` script, linked as the `yeo` command, can be run as `sudo`, which then directs the `worker` user to run `yay` for compiling and also avoid `sudo` password prompts deep in the middle of `yay` processing.
+[Yay](https://github.com/Jguer/yay) is awesome! Standardize. Avoid keyboard time and human error. But, `sudo` password prompts defeat part of this purpose. Enter `yeo`...
+
+This creates a `worker` user that can run `sudo` commands. The `yeo.sh` script, linked as the `yeo` command, can be run as `sudo`, which then directs the `worker` user to run `yay` for compiling while avoiding `sudo` password prompts deep in the middle of `yay`'s package processing.
 
 ## Install `yeo`
 
