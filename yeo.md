@@ -22,16 +22,16 @@ Copy and paste at your own risk!
 ```
 sudo groupadd worker
 sudo useradd -g worker worker
-sudo mkdir -p /opt/vrk/worker
-sudo chown -R worker:worker /opt/vrk/worker
-sudo usermod -d /opt/vrk/worker worker
+sudo mkdir -p /opt/yeo/worker
+sudo chown -R worker:worker /opt/yeo/worker
+sudo usermod -d /opt/yeo/worker worker
 sudo usermod -L worker
 sudo chsh -s /usr/sbin/bash worker 1> /dev/null 2>& 1
 
-sudo mkdir -p /opt/vrk/donjon
-sudo touch /opt/vrk/donjon/yeo.sh
-sudo chmod 755 /opt/vrk/donjon/yeo.sh
-sudo ln -sfn /opt/vrk/donjon/yeo.sh /usr/local/bin/yeo
+sudo mkdir -p /opt/yeo
+sudo touch /opt/yeo/yeo.sh
+sudo chmod 755 /opt/yeo/yeo.sh
+sudo ln -sfn /opt/yeo/yeo.sh /usr/local/bin/yeo
 ```
 
 | **2** :$ this will need `su` (if you don't know how, don't do this)
@@ -41,7 +41,7 @@ sudo ln -sfn /opt/vrk/donjon/yeo.sh /usr/local/bin/yeo
 su
 echo 'worker ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/worker
 # Below, paste the file below into yeo.sh
-vim /opt/vrk/donjon/yeo.sh
+vim /opt/yeo/yeo.sh
 ```
 
 | **yeo.sh** : paste this into the `vim` editor now open in the browser
