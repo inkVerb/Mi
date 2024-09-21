@@ -1,7 +1,17 @@
 # yeo
 *A `yay` install helper for Arch distros*
 
-This creates a `worker` that can run `sudo` commands once directed, then the `yeo.sh` script, linked as the `yeo` command, which can be run as `sudo`, which then directs `worker` to run `yay` to avoid `sudo` password prompts deep in the middle of `yay` processing
+## tl;dr
+
+Just use this: `sudo yeo -S some-package` (then walk away)
+
+Instead of this: `yay -S some-package` (then babysit to watch for `sudo` password prompts)
+
+## Reasoning
+
+This creates a `worker` user that can run `sudo` commands once directed. Then, the `yeo.sh` script, linked as the `yeo` command, can be run as `sudo`, which then directs the `worker` user to run `yay` for compiling and also avoid `sudo` password prompts deep in the middle of `yay` processing.
+
+## Install `yeo`
 
 Copy and paste at your own risk!
 
