@@ -1,5 +1,5 @@
 # yeo
-*A `yay` install helper for Arch distros*
+*A `yay` install helper helper for Arch distros*
 
 ## tl;dr
 
