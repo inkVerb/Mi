@@ -15,6 +15,9 @@ chsh -s /bin/bash # Now you must re-login
 # Basics for desktop
 sudo pacman -S chromium vim gnome-text-editor htop --noconfirm
 
+# More system monitors
+sudo pacman -S nmon atop bpytop glances bashtop
+
 # AUR package handler
 sudo pacman -S base-devel git --noconfirm
 git clone https://aur.archlinux.org/yay.git
@@ -24,21 +27,46 @@ cd ..
 rm -rf yay
 
 # Developer tools
-sudo pacman -S --noconfirm filezilla gitlab obsidian nextcloud-client guake
+sudo pacman -S --noconfirm code filezilla gitlab obsidian nextcloud-client guake
 yay -S --noconfirm slack-desktop gitter-bin vscodium-bin
 ## Themes & extensions
+### Either of these will install for both Code and Codium
+#### Codium
 codium --install-extension emroussel.atomize-atom-one-dark-theme
 codium --install-extension opensumi.opensumi-default-themes
 codium --install-extension PenumbraTheme.penumbra
 codium --install-extension timonwong.shellcheck
 codium --install-extension ms-vscode.go
+#### Code
+code --install-extension emroussel.atomize-atom-one-dark-theme
+code --install-extension opensumi.opensumi-default-themes
+code --install-extension PenumbraTheme.penumbra
+code --install-extension timonwong.shellcheck
+code --install-extension ms-vscode.go
 ## May want to add these to File > Preferences > Settings > Extensions > ShellCheck > Exclude: "SC2076,SC2016,SC1090,SC2034,SC2154,SC1091,SC2206,SC2086,SC2153,SC2231"
 
 # AUR basics for desktop
 yay -S google-chrome microsoft-edge-stable-bin xfce4-terminal adduser gnome-shell-extension-installer discord dropbox --noconfirm
 
-# Plz disable Wayland
-sudo sed -i "s/#WaylandEnable=false/WaylandEnable=false/" /etc/gdm/custom.conf
+# Make Wayland work with OBS
+sudo pacman -S pipewire xdg-desktop-portal xdg-desktop-portal-wlr qt5-wayland qt5ct
+reboot
+## We use the Wayland xdg-desktop-portal-wlr (Gnome & Xfce: xdg-desktop-portal-gtk KDE: xdg-desktop-portal-kde)
+cat <<EOF >> ~/.bashrc
+
+# Wayland
+## QT5 Fix
+export QT_QPA_PLATFORMTHEME="qt5ct"
+
+## Wayland Fix
+export QT_QPA_PLATFORM=wayland
+EOF
+
+# Enable Wayland
+sudo sed -i "s/^WaylandEnable=false/#WaylandEnable=false/" /etc/gdm/custom.conf
+
+# Disable Wayland (No, it works with the above packages)
+#sudo sed -i "s/#WaylandEnable=false/WaylandEnable=false/" /etc/gdm/custom.conf
 
 # Fortnite (Will not work on Linux until Epic supports it, but this is how to install it; the game will crash just after you land on the ground.)
 ## Method 1: Install Lutris
@@ -237,6 +265,11 @@ dconf write /org/guake/general/window-height 25
 dconf write /org/guake/general/use-popup false
 dconf write /org/guake/general/gtk-use-system-default-theme true
 dconf write /org/guake/style/font/palette-name "'Ollie'"
+
+# Reiterate the Scroll Lock for Guake (Such as if Wayland isn't deactivated)
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name "'Guake Terminal: Scroll _Lock'"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "'Scroll_Lock'"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command "'guake'"
 
 # Nice tools (We need LibreOffice; OnlyOffice doesn't have drag and drop support from files and desktop)
 sudo pacman -S gimp inkscape kid3 audacity gnome-music ffmpeg nano vlc shotcut vivaldi vivaldi-ffmpeg-codecs obs-studio libreoffice --noconfirm
