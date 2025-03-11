@@ -48,6 +48,9 @@ code --install-extension ms-vscode.go
 # AUR basics for desktop
 yay -S google-chrome microsoft-edge-stable-bin xfce4-terminal adduser gnome-shell-extension-installer discord dropbox --noconfirm
 
+# Make Pipewire do what it should for Jack so Renoise works; replaces jack2
+yay -S pipewire-jack --noconfirm
+
 # Make Wayland work with OBS
 sudo pacman -S pipewire xdg-desktop-portal xdg-desktop-portal-wlr qt5-wayland qt5ct
 reboot
