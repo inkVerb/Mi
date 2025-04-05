@@ -32,7 +32,7 @@ ___
 ## [CentOS in Style](https://github.com/inkVerb/Mi/blob/main/Styled-CentOS.md)
 ## [BIOS, EFI & Other Settings for Linux](https://github.com/inkVerb/Mi/blob/master/install-BIOS-UEFI.md)
 ## [Fcitx for Taiwan Chinese typing input](https://github.com/inkVerb/Mi/blob/main/Fcitx_zh_TW.md)
-## Ebooks & Kindle: [Get More Out Of Your Kindle In Linux With These Simple Tips // It's FOSS @ Abhishek Prakash ](https://itsfoss.com/kindle-linux-tips/)
+## Ebooks & Kindle: [Get More Out Of Your Kindle In Linux With These Simple Tips // It's FOSS @ Abhishek Prakash](https://itsfoss.com/kindle-linux-tips/)
 ___
 ## [Linux Distro DL Links](https://github.com/inkVerb/Mi/blob/master/Linux-DL.md)
 
