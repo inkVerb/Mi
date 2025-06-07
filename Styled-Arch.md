@@ -120,8 +120,8 @@ gsettings set org.gnome.desktop.background show-desktop-icons true
 dconf write /org/gtk/gtk4/settings/file-chooser/sort-directories-first true
 
 # Workspace switching (defaults)
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "['<Control><Alt>Left']"
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "['<Control><Alt>Right']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "['<Control><Alt>Left']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "['<Control><Alt>Right']"
 
 # Password anytime screen turns back on (from lock or suspend)
 gsettings set org.gnome.desktop.screensaver lock-enabled true

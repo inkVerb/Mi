@@ -93,8 +93,8 @@ gsettings set org.gnome.shell.keybindings toggle-overview "['<Super>']"
 gsettings set org.gnome.desktop.background show-desktop-icons true
 
 # Workspace switching (defaults)
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "['<Control><Alt>Left']"
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "['<Control><Alt>Right']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "['<Control><Alt>Left']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "['<Control><Alt>Right']"
 
 # Password anytime screen turns back on (from lock or suspend)
 gsettings set org.gnome.desktop.screensaver lock-enabled true
