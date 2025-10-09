@@ -115,7 +115,7 @@ gsettings set org.gnome.desktop.interface enable-hot-corners true
 gsettings set org.gnome.shell.app-switcher current-workspace-only true
 gsettings set org.gnome.settings-daemon.plugins.power power-button-action 'interactive'
 gsettings set org.gnome.shell.keybindings toggle-application-view "['<Ctrl>Super_L']"
-gsettings set org.gnome.shell.keybindings toggle-overview "['<Super>']"
+gsettings set org.gnome.shell.keybindings toggle-overview "['Super_L']"
 gsettings set org.gnome.desktop.background show-desktop-icons true
 dconf write /org/gtk/gtk4/settings/file-chooser/sort-directories-first true
 
@@ -140,7 +140,7 @@ gnome-extensions enable arcmenu@arcmenu.com
 gsettings set org.gnome.shell.extensions.arcmenu menu-button-icon 'Distro_Icon'
 #gsettings set org.gnome.shell.extensions.arcmenu menu-button-icon 'Arc_Menu_Icon'
 gsettings set org.gnome.shell.extensions.arcmenu multi-monitor true
-gsettings set org.gnome.shell.extensions.arcmenu arcmenu-hotkey '['Super_R']'
+gsettings set org.gnome.shell.extensions.arcmenu arcmenu-hotkey "['Super_R']"
 
 # Dash to Dock
 gnome-extensions enable dash-to-dock@micxgx.gmail.com
