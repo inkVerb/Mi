@@ -28,7 +28,9 @@ rm -rf yay
 
 # Developer tools
 sudo pacman -S --noconfirm code filezilla gitlab obsidian nextcloud-client guake
-yay -S --noconfirm slack-desktop gitter-bin vscodium-bin
+yay -S --noconfirm slack-desktop gitter-bin
+yay -S --noconfirm vscodium-bin
+yay -S --noconfirm visual-studio-code-bin # Incompatible with pacman package `code`
 ## Themes & extensions
 ### Either of these will install for both Code and Codium
 #### Codium
