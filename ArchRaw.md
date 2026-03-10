@@ -47,11 +47,11 @@ Install base packages to the mounted, will-become Arch partition
 
 ```console
 # For AMD machines
-pacstrap /mnt base linux linux-firmware vim vi amd-ucode
+pacstrap /mnt base linux linux-firmware linux-headers vim vi amd-ucode
 # For Intel machines:
-pacstrap /mnt base linux linux-firmware vim vi intel-ucode
+pacstrap /mnt base linux linux-firmware linux-headers vim vi intel-ucode
 # For Nvidia
-pacstrap /mnt nvidia-utils nvidia-settings
+pacstrap /mnt nvidia-open nvidia-utils nvidia-settings
 ```
 
 5. Configure /etc/fstab, then chroot
@@ -107,7 +107,6 @@ vim /etc/default/grub
 
 ```console
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --recheck
-os-prober
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
@@ -125,12 +124,21 @@ After reboot, login with the user and password you created in the arch-chroot en
 sudo pacman -Syyu --needed --noconfirm
 ```
 
+Drivers
+
 ```console
 # Intel
 # sudo pacman -S --needed --noconfirm libva-intel-driver # 2008-2017 hardware
 sudo pacman -S --needed --noconfirm intel-media-driver # 2014-PRESENT hardware
 # AMD
 sudo pacman -S --needed --noconfirm vulkan-radeon mesa-vdpau libva-mesa-driver
+```
+
+GRUB can see all the other operating systems now, rebuild
+
+```console
+sudo os-prober
+sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 13. GNOME Desktop
@@ -176,7 +184,7 @@ sudo yeo -S --noconfirm xfce4-terminal gnome-shell-extension-system-monitor-appl
 GNOME packages, tools, and dependencies
 
 ```console
-sudo pacman -S --needed --noconfirm gnome-console gnome-terminal gdm libva-utils gnome gnome-shell gnome-control-center gnome-extra gnome-tweaks extension-manager gnome-browser-connector gnome-shell-extensions gnome-shell-extension-dash-to-panel gnome-shell-extension-appindicator gnome-shell-extension-vitals gnome-text-editor gedit htop ntp guake chromium
+sudo pacman -S --needed --noconfirm gnome-console gnome-terminal gdm libva-utils gnome gnome-shell gnome-control-center gnome-extra gnome-tweaks extension-manager gnome-browser-connector gnome-shell-extensions gnome-shell-extension-dash-to-panel gnome-shell-extension-appindicator gnome-themes-extra gnome-shell-extension-vitals gnome-text-editor gedit htop ntp guake chromium firefoxlinux-headers
 sudo pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-jetbrains-mono ttf-fira-code ttf-hack adobe-source-code-pro-fonts inter-font ttf-ubuntu-font-family
 sudo systemctl enable gdm
 ```
