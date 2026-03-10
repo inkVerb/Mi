@@ -1,4 +1,4 @@
-# Manjaro
+# Arch Distros
 
 ## Create the Linux Live USB in Windows
 

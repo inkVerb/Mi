@@ -28,7 +28,7 @@ sudo pacman -S mypaint --noconfirm
 sudo pacman -S inkscape --noconfirm
 sudo pacman -S blender --noconfirm
 sudo pacman -S synfigstudio --noconfirm
-sudo pacman -S libreoffice --noconfirm
+sudo pacman -S libreoffice hunspell hunspell-en_us --noconfirm # Including spell check packages
 sudo pacman -S git --noconfirm
 sudo pacman -S htop --noconfirm
 sudo pacman -S gpaste --noconfirm

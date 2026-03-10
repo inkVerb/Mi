@@ -317,3 +317,34 @@ done
 ```
 gsettings-iterate-all | grep dash-to-dock
 ```
+
+# Wine installers (maybe broken)
+
+Wine for Power eTrade Pro *Windows 11 if asked*
+
+```
+sudo pacman -Syy wine-staging winetricks wine-mono wine-gecko samba vkd3d lib32-vkd3d --needed --noconfirm
+WINEPREFIX=~/.power_etrade winecfg
+WINEPREFIX=~/.power_etrade winetricks -q dotnet48 corefonts d3dcompiler_47 dxvk
+```
+
+- Install and launch first time
+
+```
+WINEPREFIX=~/.power_etrade wine ~/Downloads/Power_ETRADE_Pro_Setup.exe
+WINEPREFIX=~/.power_etrade wine ~/.power_etrade/drive_c/users/$USER/AppData/Local/Power_ETRADE_Pro/Power_ETRADE_Pro.exe
+```
+
+Wine for Tradovate *Windows 11 if asked*
+
+```
+sudo pacman -Syy wine-staging winetricks wine-mono wine-gecko --needed --noconfirm
+WINEPREFIX=~/.tradovate winecfg
+```
+
+- Install and launch first time
+
+```
+WINEPREFIX=~/.tradovate wine ~/Downloads/Tradovate.Setup.exe
+WINEPREFIX=~/.tradovate wine ~/.tradovate/drive_c/users/$USER/AppData/Local/tradovate_desktop/Tradovate.exe
+```
