@@ -1,7 +1,7 @@
 # Arch Raw
 Installing Arch Linux
 
-Make sure you have your bootable [Live Arch USB](https://github.com/inkVerb/Arch.md)
+Make sure you have your bootable [Live Arch USB](https://github.com/inkVerb/Mi/blob/main/Arch.md)
 
 ## Arch to dual boot
 *This does not partition any disks, though it formats the install partition*
@@ -44,8 +44,8 @@ mount /dev/sda1 /mnt/boot/efi
 pacstrap /mnt base linux linux-firmware vim vi amd-ucode
 # For Intel machines:
 pacstrap /mnt base linux linux-firmware vim vi intel-ucode
-# For Nvidea
-pacstrap /mnt nvidia nvidia-utils nvidia-settings
+# For Nvidia
+pacstrap /mnt nvidia-utils nvidia-settings
 ```
 
 5. Configure /etc/fstab, then chroot
