@@ -141,17 +141,32 @@ Run this as your normal Linux user that the desktop will be for
 ```console
 localectl set-locale LANG=en_US.UTF-8
 ```
+### GNOME via script
 
 The rest of this onerous step can be done with the [Arch-GNOME install script](https://github.com/inkVerb/Mi/blob/main/Arch-GNOME-install.sh)
 
-Via script:
+GNOME via script:
 
 ```console
-git clone https://github.com/inkverb/ni
+git clone https://github.com/inkverb/mi
 cd mi
 chmod +x Arch-GNOME-install.sh
 sudo ./Arch-GNOME-install.sh
 ```
+AUR helpers and font packages via script:
+
+```console
+git clone https://github.com/jessesteele/yeo
+cd yeo
+chmod +x install.sh
+sudo ./install.sh
+cd ..
+rm -rf yeo
+sudo yeo -S --noconfirm ttf-ms-fonts ttf-mac-fonts nerd-fonts-complete
+sudo yeo -S --noconfirm xfce4-terminal gnome-shell-extension-system-monitor-applet
+```
+
+### GNOME via CLI
 
 GNOME packages, tools, and dependencies
 
