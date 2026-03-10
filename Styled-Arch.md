@@ -119,6 +119,7 @@ gsettings set org.gnome.settings-daemon.plugins.power power-button-action 'inter
 gsettings set org.gnome.shell.keybindings toggle-application-view "['<Ctrl>Super_L']"
 gsettings set org.gnome.shell.keybindings toggle-overview "['Super_L']"
 gsettings set org.gnome.desktop.background show-desktop-icons true
+gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 dconf write /org/gtk/gtk4/settings/file-chooser/sort-directories-first true
 
 # Workspace switching (defaults)
