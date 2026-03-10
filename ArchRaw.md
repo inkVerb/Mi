@@ -36,10 +36,16 @@ mkfs.ext4 /dev/sda3
 ```
 
 4. Mount and install base
+Mount both the drive and the EFI partition, but separately
 ```console
 mount /dev/sda3 /mnt
 mkdir -p /mnt/boot/efi
 mount /dev/sda1 /mnt/boot/efi
+```
+
+Install base packages to the mounted, will-become Arch partition
+
+```console
 # For AMD machines
 pacstrap /mnt base linux linux-firmware vim vi amd-ucode
 # For Intel machines:
@@ -56,21 +62,21 @@ arch-chroot /mnt
 
 6. Host
 ```console
-ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
 hwclock --systohc
+sed -i "s/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/" /etc/locale.gen
 locale-gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
-echo "ArchOnMacMini" > /etc/hostname
+echo "ArchMachine" > /etc/hostname
 ```
 
 7. Packages & NetworkManager
 ```console
-sudo pacman -S grub grub-customizer efibootmgr os-prober mtools networkmanager network-manager-applet wireless_tools wpa_supplicant dialog sudo git base-devel
-sudo pacman -S broadcom-wl-dkms xf86-video-intel # 2012 Mac Mini WiFi and video drivers
-sudo pacman -S nvidia lib32-nvidia-utils # Nvidea drivers
-sudo pacman -S --needed --noconfirm vulkan-radeon mesa-vdpau libva-mesa-driver # AMD GPU drivers
-sudo pacman -S bluez bluez-utils # Bluetooth
-sudo systemctl enable NetworkManager
+pacman -S --needed --noconfirm grub efibootmgr os-prober mtools networkmanager network-manager-applet wireless_tools wpa_supplicant dialog sudo git base-devel
+pacman -S --needed --noconfirm broadcom-wl-dkms xf86-video-intel # 2012 Mac Mini WiFi and video drivers
+pacman -S --needed --noconfirm vulkan-radeon mesa-vdpau libva-mesa-driver # AMD GPU drivers
+pacman -S --needed --noconfirm bluez bluez-utils # Bluetooth
+systemctl enable NetworkManager
 ```
 
 8. User & Password
@@ -81,20 +87,7 @@ useradd -m -G wheel yournamehere
 passwd yournamehere
 ```
 
-9. GRUB Bootloader
-```console
-grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --recheck
-grub-mkconfig -o /boot/grub/grub.cfg
-```
-
-10. Restart
-```console
-exit
-umount -R /mnt
-reboot
-```
-
-11. Login & sudo
+9. Login & sudo
 Enter your login creds
 
 Enable the wheel
@@ -104,41 +97,34 @@ visudo
 
 Uncomment this line: `# %wheel ALL=(ALL:ALL) ALL`
 
-11. Enable other OS
-```console
-sudo pacman -S mtools
-sudo vim /etc/default/grub
-```
-- Uncomment this line; add if needed: `# GRUB_DISABLE_OS_PROBER=false`
-- Add `pci=nocrs` to the value "inside the quotes" of the line starting with `GRUB_CMDLINE_LINUX_DEFAULT=`
-
-
-A Mac may need more work for GRUB to work
-
-If not needed, skip this part
-
-| Identify your mad partition
-| 
-| ```console
-| lsblk -f
-| ```
-| 
-| Assuming `/dev/sda2`...
-| 
-| ```console
-| sudo pacman -S apfs-fuse
-| sudo mkdir /mnt/mac
-| sudo mount -t apfs /dev/sda2 /mnt/mac 2>/dev/null
-| ```
-
-Remake GRUB
+10. GRUB Bootloader
 
 ```console
-sudo os-prober
-sudo grub-mkconfig -o /boot/grub/grub.cfg
+vim /etc/default/grub
 ```
 
-12. Post-install GPU Drivers
+- Uncomment or add this line as needed: `# GRUB_DISABLE_OS_PROBER=false`
+
+```console
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --recheck
+os-prober
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+11. Restart
+```console
+exit
+umount -R /mnt
+reboot
+```
+
+12. Post-install Upgrade & GPU Drivers
+After reboot, login with the user and password you created in the arch-chroot environmentos-prober
+
+```console
+sudo pacman -Syyu --needed --noconfirm
+```
+
 ```console
 # Intel
 # sudo pacman -S --needed --noconfirm libva-intel-driver # 2008-2017 hardware
@@ -156,25 +142,21 @@ Run this as your normal Linux user that the desktop will be for
 localectl set-locale LANG=en_US.UTF-8
 ```
 
-The rest of this onerous step can be done with the [Arch-GNOME install script](https://github.com/inkVerb/Arch-GNOME-install.sh)
+The rest of this onerous step can be done with the [Arch-GNOME install script](https://github.com/inkVerb/Mi/blob/main/Arch-GNOME-install.sh)
+
+Via script:
 
 ```console
-
-```
-
-...OR DIY...
-
-Some things won't work unless the locale is properly set
-
-```console
-sudo sed -i "s/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/" /etc/locale.gen
-sudo locale-gen
+git clone https://github.com/inkverb/ni
+cd mi
+chmod +x Arch-GNOME-install.sh
+sudo ./Arch-GNOME-install.sh
 ```
 
 GNOME packages, tools, and dependencies
 
 ```console
-sudo pacman -S --needed --noconfirm gnome-console gnome-terminal gdm libva-utils gnome gnome-shell gnome-control-center gnome-extra gnome-tweaks extension-manager gnome-browser-connector gnome-shell-extensions gnome-shell-extension-dash-to-panel gnome-shell-extension-appindicator gnome-shell-extension-vitals gnome-text-editor gedit top ntp guake chromium
+sudo pacman -S --needed --noconfirm gnome-console gnome-terminal gdm libva-utils gnome gnome-shell gnome-control-center gnome-extra gnome-tweaks extension-manager gnome-browser-connector gnome-shell-extensions gnome-shell-extension-dash-to-panel gnome-shell-extension-appindicator gnome-shell-extension-vitals gnome-text-editor gedit htop ntp guake chromium
 sudo pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-jetbrains-mono ttf-fira-code ttf-hack adobe-source-code-pro-fonts inter-font ttf-ubuntu-font-family
 sudo systemctl enable gdm
 ```
