@@ -197,7 +197,7 @@ sed -i "s/UITheme=theme-.*/UITheme=theme-dark/" ~/.config/onlyoffice/DesktopEdit
 # Gedit settings
 gsettings set org.gnome.gedit.preferences.editor wrap-mode none
 gsettings set org.gnome.gedit.preferences.editor display-line-numbers true
-gsettings set org.gnome.gedit.preferences.editor scheme 'solarized-dark'
+# gsettings set org.gnome.gedit.preferences.editor scheme 'solarized-dark' # no 'scheme'
 
 # GNOME Text Editor
 echo 'alias vedit=gnome-text-editor' >> ~/.bashrc
