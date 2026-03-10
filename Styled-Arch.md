@@ -18,6 +18,16 @@ sudo pacman -S chromium vim gnome-text-editor htop --noconfirm
 # More system monitors
 sudo pacman -S nmon atop bpytop glances bashtop
 
+# Install yeo the AUR helper helper
+## Automatically installs yay, skip below
+git clone https://github.com/jessesteele/yeo
+cd yeo
+chmod +x install.sh
+sudo ./install.sh
+cd ..
+rm -rf yeo
+# NOW you CAN use `sudo yeo -S` with `yeo` to replace `yay` in all other ways
+
 # AUR package handler
 sudo pacman -S base-devel git --noconfirm
 git clone https://aur.archlinux.org/yay.git
@@ -25,6 +35,12 @@ cd yay
 makepkg -si --noconfirm
 cd ..
 rm -rf yay
+# NEVER use `sudo yay -S ...`
+
+# Zsh & theme
+sudo pacman -S zsh
+yay -S --noconfirm ttf-meslo-nerd-font-powerlevel10k zsh-theme-powerlevel10k-git
+echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc
 
 # Developer tools
 sudo pacman -S --noconfirm code filezilla gitlab obsidian nextcloud-client guake
