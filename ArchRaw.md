@@ -243,6 +243,18 @@ sudo refind-install
 
 Next time you boot, you will get all options, including Arch, MacOS, and even recovery options
 
+### Theme rEFInd
+These repos have easy install instructions and lots of eye candy
+
+- [refind-theme-regular](https://github.com/bobafetthotmail/refind-theme-regular)
+  - One-line install: `sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/bobafetthotmail/refind-theme-regular/master/install.sh)"`
+- [rEFInd-minimal](https://github.com/evanpurkhiser/rEFInd-minimal)
+  - AUR: [refind-theme-minimal-git](https://aur.archlinux.org/packages/refind-theme-minimal-git)
+- [refind-theme-nord](https://github.com/jaltuna/refind-theme-nord)
+  - AUR: [refind-theme-nord](https://aur.archlinux.org/packages/refind-theme-nord)
+- [rEFInd-Black](https://github.com/maccuaa/rEFInd-Black)
+- [rEFInd-glassy](https://github.com/Pr0cella/rEFInd-glassy)
+
 ___ 
 
 ## Arch VPS on Vultr [credit](https://www.vultr.com/docs/installing-2019-arch-linux-on-a-vultr-server)
