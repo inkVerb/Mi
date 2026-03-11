@@ -1,12 +1,19 @@
 # Arch Raw
 Installing Arch Linux
 
-Make sure you have your bootable [Live Arch USB](https://github.com/inkVerb/Mi/blob/main/Arch.md)
+Make sure you have your bootable [Live Arch USB](https://github.com/inkVerb/Mi/blob/main/Arch.md).
 
-## Arch to dual boot
+For a more in-depth look at Arch Linux installation, read David Smith's [excellent article](https://davidhsmith4.medium.com/installing-arch-linux-a-beginners-guide-part-1-b1c2f399d5ee)
+
+With the `archinstall` script now a part of the Arch Installation, much of the complexity in selecting keyboard, setting time, and initiating the network configuration are automated, which is why they are not addressed in this guide
+
+## Arch system for dual boot
 *This does not partition any disks, though it formats the install partition*
 
-*For CLI installer partitioning instructions, borrow from the VPS instructions*
+- If installing Arch along side another operating system, avoid erasing that system; use that system to create a partition and install Arch directly to it
+- If you want to do the disk formatting in the CLI, it is advisable to unplug other drives and use an empty or erasable disk to start from scratch
+
+*For CLI installer partitioning instructions, borrow from the Vultr VPS instructions in a later section, or just read David's article for explanation*
 
 1. Create the partition you want to install Arch on
   - Use a Live USB like Manjaro or XFCE, etc
@@ -149,6 +156,11 @@ Run this as your normal Linux user that the desktop will be for
 ```console
 localectl set-locale LANG=en_US.UTF-8
 ```
+## GUI
+David Smith's [article continues](https://davidhsmith4.medium.com/installing-arch-linux-a-beginners-guide-part-2-e1300ff2c73b) using the i3 window manager with Xorg
+
+We will continue here with GNOMR
+
 ### GNOME via script
 
 The rest of this onerous step can be done with the [Arch-GNOME install script](https://github.com/inkVerb/Mi/blob/main/Arch-GNOME-install.sh)
@@ -218,16 +230,16 @@ Re-run GRUB's installer
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-## Optional GRUB Dark Matter Theme
-[Dark Matter GRUB Theme](https://github.com/VandalByte/darkmatter-grub2-theme?tab=readme-ov-file)
-- The setup includes many distro-celebrated theme options
-- This will inherit any existing GRUB settings you already have, including `os-prober`, custom line edits, et al
-- It uses a guided installer, just use the commands:
-
-```console
-git clone --depth 1 https://github.com/VandalByte/darkmatter-grub2-theme.git && cd darkmatter-grub2-theme
-sudo python3 darkmatter-theme.py --install
-```
+## Optional GRUB Themes
+- [Gorgeous-GRUB](https://github.com/jacksaur/Gorgeous-GRUB) – A collection from the community
+- [Office](https://github.com/yeyushengfan258/Office-grub-theme)
+- [Intervals](https://github.com/yeyushengfan258/Intervals-grub-theme)
+- [GRUB2 Themes](https://github.com/vinceliuice/grub2-themes): Tela, Stylish, Vimix, WhiteSur
+- [Dark Matter GRUB Theme](https://github.com/VandalByte/darkmatter-grub2-theme?tab=readme-ov-file)
+  - One-line install: `git clone --depth 1 https://github.com/VandalByte/darkmatter-grub2-theme.git && cd darkmatter-grub2-theme
+sudo python3 darkmatter-theme.py --install`
+- [Atomic](https://github.com/lfelipe1501/Atomic-GRUB2-Theme)
+  - One-line install: `sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/lfelipe1501/Atomic-GRUB2-Theme/master/install.sh)" && sudo grub-mkconfig -o /boot/grub/grub.cfg`
 
 ## Optional rEFInd boot menu for MacOS
 - GRUB doesn't handle Apple partitions well, probably for good reason and security
