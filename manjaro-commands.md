@@ -10,6 +10,7 @@ yay -Syyu --noconfirm # Update UAR packages https://open.spotify.com/track/76zDf
 yay -Scc --noconfirm # Clean cache
 
 sudo pacman -S chromium --noconfirm
+sudo pacman -S falkon epiphany --noconfirm
 sudo pacman -S vivaldi vivaldi-ffmpeg-codecs --noconfirm
 sudo pacman -S thunderbird --noconfirm
 sudo pacman -S filezilla --noconfirm
