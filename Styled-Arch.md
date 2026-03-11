@@ -41,6 +41,17 @@ rm -rf yay
 sudo pacman -S zsh
 yay -S --noconfirm ttf-meslo-nerd-font-powerlevel10k zsh-theme-powerlevel10k-git
 echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc
+echo '[[ -f ~/.dircolors ]] && eval $(dircolors -b ~/.dircolors) || eval $(dircolors -b)' >> ~/.zshrc
+echo "alias ls='ls --color=auto'" >> ~/.zshrc
+echo 'zstyle '"':completion:*'"' list-colors "${(s.:.)LS_COLORS}"
+autoload -Uz compinit
+compinit' >> ~/.zshrc
+
+# BASH theme (Since Arch doesn't really come with one)
+echo "alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias diff='diff --color=auto'" >> ~/.bashrc
+echo '[[ -f ~/.dircolors ]] && eval $(dircolors -b ~/.dircolors) || eval $(dircolors -b)' >> ~/.bashrc
 
 # Developer tools
 sudo pacman -S --noconfirm code filezilla gitlab obsidian nextcloud-client guake
