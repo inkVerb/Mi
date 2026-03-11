@@ -244,6 +244,8 @@ sudo refind-install
 Next time you boot, you will get all options, including Arch, MacOS, and even recovery options
 
 ### Theme rEFInd
+*These themes may break rEFInd; use with care*
+
 These repos have easy install instructions and lots of eye candy
 
 - [refind-theme-regular](https://github.com/bobafetthotmail/refind-theme-regular)
