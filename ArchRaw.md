@@ -218,8 +218,21 @@ Re-run GRUB's installer
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
+## Optional GRUB Dark Matter Theme
+[Dark Matter GRUB Theme](https://github.com/VandalByte/darkmatter-grub2-theme?tab=readme-ov-file)
+- The setup includes many distro-celebrated theme options
+- This will inherit any existing GRUB settings you already have, including `os-prober`, custom line edits, et al
+- It uses a guided installer, just use the commands:
+
+```console
+git clone --depth 1 https://github.com/VandalByte/darkmatter-grub2-theme.git && cd darkmatter-grub2-theme
+sudo python3 darkmatter-theme.py --install
+```
+
 ## Optional rEFInd boot menu for MacOS
-GRUB doesn't handle Apple partitions well, probably for good reason and security
+- GRUB doesn't handle Apple partitions well, probably for good reason and security
+- This can work for almost any OS recipe and is an easy replacement for GRUB, not only MacOS
+- rEFInd is also themable, search the Internet
 
 On a Mac, for a great boot menu with many useful options and no hassle, run this after everything else
 
