@@ -184,7 +184,7 @@ sudo yeo -S --noconfirm xfce4-terminal gnome-shell-extension-system-monitor-appl
 GNOME packages, tools, and dependencies
 
 ```console
-sudo pacman -S --needed --noconfirm gnome-console gnome-terminal gdm libva-utils gnome gnome-shell gnome-control-center gnome-extra gnome-tweaks extension-manager gnome-browser-connector gnome-shell-extensions gnome-shell-extension-dash-to-panel gnome-shell-extension-appindicator gnome-themes-extra gnome-shell-extension-vitals gnome-text-editor gedit htop ntp guake chromium firefoxlinux-headers
+sudo pacman -S --needed --noconfirm gnome-console gnome-terminal gdm libva-utils gnome gnome-shell gnome-control-center gnome-extra gnome-tweaks extension-manager gnome-browser-connector gnome-shell-extensions gnome-shell-extension-dash-to-panel gnome-shell-extension-appindicator gnome-themes-extra gnome-shell-extension-vitals gnome-text-editor gedit lsb-release htop ntp guake chromium firefoxlinux-headers
 sudo pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-jetbrains-mono ttf-fira-code ttf-hack adobe-source-code-pro-fonts inter-font ttf-ubuntu-font-family
 sudo systemctl enable gdm
 ```
