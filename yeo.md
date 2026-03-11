@@ -7,6 +7,8 @@ Just use this: `sudo yeo -S some-package` (then walk away)
 
 Instead of this: `yay -S some-package` (then babysit to watch for `sudo` password prompts)
 
+Read more about the full project and script installer from the [yeo project creator](https://github.com/jessesteele/yeo)
+
 ## Reasoning
 
 [Yay](https://github.com/Jguer/yay) is awesome! Standardize. Avoid keyboard time and human error. But, `sudo` password prompts defeat the purpose. Enter `yeo`...
