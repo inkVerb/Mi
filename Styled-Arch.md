@@ -40,18 +40,23 @@ rm -rf yay
 # Zsh & theme
 sudo pacman -S zsh
 yay -S --noconfirm ttf-meslo-nerd-font-powerlevel10k zsh-theme-powerlevel10k-git
-echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc
-echo '[[ -f ~/.dircolors ]] && eval $(dircolors -b ~/.dircolors) || eval $(dircolors -b)' >> ~/.zshrc
-echo "alias ls='ls --color=auto'" >> ~/.zshrc
-echo 'zstyle '"':completion:*'"' list-colors "${(s.:.)LS_COLORS}"
+cat << 'EOF' >> ~/.zshrc
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+[[ -f ~/.dircolors ]] && eval $(dircolors -b ~/.dircolors) || eval $(dircolors -b)
+alias ls='ls --color=auto'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 autoload -Uz compinit
-compinit' >> ~/.zshrc
+compinit
+EOF
 
 # BASH theme (Since Arch doesn't really come with one)
-echo "alias ls='ls --color=auto'
+cat << 'EOF' >> ~/.bashrc
+alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-alias diff='diff --color=auto'" >> ~/.bashrc
-echo '[[ -f ~/.dircolors ]] && eval $(dircolors -b ~/.dircolors) || eval $(dircolors -b)' >> ~/.bashrc
+alias diff='diff --color=auto'
+[[ -f ~/.dircolors ]] && eval $(dircolors -b ~/.dircolors) || eval $(dircolors -b)
+PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+EOF
 
 # Developer tools
 sudo pacman -S --noconfirm code filezilla gitlab obsidian nextcloud-client guake
