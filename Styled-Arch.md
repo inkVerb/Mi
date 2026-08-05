@@ -87,7 +87,6 @@ yay -S pipewire-jack --noconfirm
 
 # Make Wayland work with OBS
 sudo pacman -S pipewire xdg-desktop-portal xdg-desktop-portal-wlr qt5-wayland qt5ct
-reboot
 ## We use the Wayland xdg-desktop-portal-wlr (Gnome & Xfce: xdg-desktop-portal-gtk KDE: xdg-desktop-portal-kde)
 cat <<EOF >> ~/.bashrc
 
@@ -104,6 +103,12 @@ sudo sed -i "s/^WaylandEnable=false/#WaylandEnable=false/" /etc/gdm/custom.conf
 
 # Disable Wayland (No, it works with the above packages)
 #sudo sed -i "s/#WaylandEnable=false/WaylandEnable=false/" /etc/gdm/custom.conf
+
+# Icons
+## Papyrus
+sudo pacman -S papirus-icon-theme 
+## Other icons (a big, long list + KDE icons)
+sudo pacman -S tela-circle-icon-theme-all breeze-icons
 
 # Fortnite (Will not work on Linux until Epic supports it, but this is how to install it; the game will crash just after you land on the ground.)
 ## Method 1: Install Lutris
